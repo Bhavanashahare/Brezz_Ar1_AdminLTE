@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Color;
 use Illuminate\Http\Request;
-
+use App\Models\Product;
 class ColorController extends Controller
 {
     public function create(){
-        return view('colors.create');
+        $products=Product::all();
+        return view('colors.create',compact ('products'));
     }
     public function store(Request $request)
 
@@ -47,6 +48,8 @@ public function table(){
     public function edit($id){
 
         $data=Color::find($id);
+
+        $category=Product::all();
         return view('colors.edit',compact('data'));
 
     }

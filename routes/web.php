@@ -11,6 +11,8 @@ use App\Http\Controllers\ProfileController;
 
 use Illuminate\Support\Facades\Route;
 
+// i didn't migrate table on review and order in table we cannot migrate or create table or datable//
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes

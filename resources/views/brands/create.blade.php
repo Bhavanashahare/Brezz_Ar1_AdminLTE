@@ -46,7 +46,7 @@
                                             @enderror
                                         </span>
                                 </div>
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label for="product_id">Product_id</label>
                                     <input type="integer" name="product_id" class="form-control" id="product_id"
                                         placeholder="Enter product_id" value="{{old('product_id')}}">
@@ -55,7 +55,16 @@
                                                 {{ $message }}
                                             @enderror
                                         </span>
-                                </div>
+                                </div> --}}
+
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Product_id</label>
+                                    <select class="form-control" id="exampleFormControlSelect1" name="product_id" value="">
+                                        @foreach($products as $product)
+                                      <option value="{{$product->id}}">{{$product->title}}</option>
+                                        @endforeach
+                                    </select>
+                                  </div>
 
 {{--
                                 <div class="form-group">

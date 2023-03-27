@@ -311,8 +311,16 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{route('review.index')}}" class="nav-link">
+                                <i class="nav-icon far fa-envelope"></i>
+                                <p>
+                                    Review
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                        </li>
 
-                   
 
                         <li class="nav-item">
                             {{-- logout   view/auth/layouts/navigation.blade.php se uthaya --}}
