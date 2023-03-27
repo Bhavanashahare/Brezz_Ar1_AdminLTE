@@ -47,16 +47,21 @@
                                             @enderror
                                         </span>
                                 </div>
+                                {{-- multiple image  value =images --}}
                                 <div class="form-group">
                                     <label for="image">image</label>
-                                    <input type="file" name="image[]" multiple  class="form-control" id="image"
-                                        placeholder="Enter image" value="image"  >
+                                    <input type="file" name="images[]" multiple  class="form-control" id="image"
+                                        placeholder="Enter image" value="images"  accept="image/*">
                                         <span class="text-danger">
-                                            @error('image')
+                                            @error('images')
                                                 {{ $message }}
                                             @enderror
                                         </span>
                                 </div>
+                                {{-- end --}}
+
+
+
                                 <div class="mb-3 col-md-12">
                                     <label class="form-label" for="status">Status Type<span class="text-danger">
                                             *</span></label>

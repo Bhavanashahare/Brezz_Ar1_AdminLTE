@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('description');
-            $table->string('image');
+            // database mai images hy
+            $table->string('images');
             $table->string('status');
             $table->timestamps();
         });

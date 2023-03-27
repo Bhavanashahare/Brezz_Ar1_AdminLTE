@@ -1,9 +1,7 @@
 <?php
 
 use App\Http\Controllers\BrandController;
-
-
-
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ColorController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CmsController;
@@ -95,5 +93,7 @@ Route::get('color/delete/{id}', [ColorController::class, 'delete'])->name('color
 
 
 
+// review (create with database)
 
-
+Route::get('review/index', [ReviewController::class, 'index'])->name('review.index');
+//

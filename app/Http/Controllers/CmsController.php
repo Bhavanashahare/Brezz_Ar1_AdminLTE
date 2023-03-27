@@ -24,7 +24,8 @@ class CmsController extends Controller
         $this->validate ($request,[
             'title'=>'required',
             'description'=>'required',
-            'image'=>'required',
+            // multiple images
+            'images'=>'required',
             'status'=>'required',
         ]);
 
@@ -32,27 +33,7 @@ class CmsController extends Controller
         $data->title = $request->title;
         // dd($request->all());
         $data->description = $request->description;
-
-
-        // if ($request->hasFile('image')) {
-        //     $file = $request->image;
-        //     $extension = $file->getClientOriginalExtension();
-        //     $filename = time() . '.' . $extension;
-        //     $file->move('uploads', $filename);
-        //     $data->image = $filename;
-        // }
-
-        // if($files=$request->file('image')){
-        //     foreach($files as $file){
-        //         // $name=$file->getClientOriginalExtension();
-        //         // $filename = time().'.'.$name;
-        //         // $file->move('uploads/car/',$filename);
-        //         // $images[]=$filename;
-        //         $name=$file->getClientOriginalName();
-        //     $file->move('uploads',$name);
-        //     $image[]=$name;
-        //     }
-
+// multiple image code
         if($files=$request->file('images')){
             foreach($files as $file){
                 $name=$file->getClientOriginalName();
@@ -61,6 +42,8 @@ class CmsController extends Controller
             }
         }
         $data->images =   implode("|",$images);
+
+
         $data->status = $request->status;
 
 
@@ -93,24 +76,30 @@ class CmsController extends Controller
             $this->validate ($request,[
                 'title'=>'required',
                 'description'=>'required',
-                'image'=>'required',
+                // multiple images  for images
+                'images'=>'required',
                 'status'=>'required',
             ]);
         $data=Cms::find($id);
         $data->title = $request->title;
         $data->description = $request->description;
-        if ($request->hasFile('image')) {
-            $file = $request->image;
-            $extension = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $extension;
-            $file->move('uploads', $filename);
-            $data->image = $filename;
+
+        if($files=$request->file('images')){
+            foreach($files as $file){
+                $name=$file->getClientOriginalName();
+            $file->move('uploads/car/',$name);
+            $images[]=$name;
+            }
         }
+        $data->images =   implode("|",$images);
+
         $data->status = $request->status;
         $data->save();
         return redirect()->route('cms.table')->with ('message','Data Update Successfully!!!');
     }
-}
-}
+        }
 
+}
+// imp.note
+//for multiple image we have to create a folder name as car in in public->uplodes in uplodes we have create car folder
 

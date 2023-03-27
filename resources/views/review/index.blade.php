@@ -1,3 +1,6 @@
+
+{{-- datatable --}}
+
 @extends('layouts.master')
 @section('content')
     <!-- Main content -->
@@ -13,13 +16,11 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">CMS Table</h3>
+                            <h3 class="card-title">Review Table</h3>
                         </div>
                         <div class="card-header">
-                            <h3 class="card-title">
-                                <a href="{{ route('cms.create') }}"><button type="button"
-                                        class="btn btn-primary btn-sm">Create CMS</button></a>
-                            </h3>
+                            {{-- <h3 class="card-title"><a href="{{ route('order.index') }}"><button type="button"
+                                        class="btn btn-primary btn-sm">Create Product</button></h3></a> --}}
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -29,11 +30,14 @@
                                 <thead>
                                     <tr>
                                         <th style="width: 10px">ID</th>
-                                        <th style="width:20px">Title</th>
-                                        <th style="width:30px">description</th>
-                                        <th style="width:30px">image</th>
-                                        <th style="width:30px">status</th>
-                                        <th style="width:30px">Actions</th>
+
+                                        <th style="width:30px">user_id</th>
+                                        <th style="width:30px">product_id</th>
+                                        <th style="width:30px">message</th>
+                                        <th style="width:30px">rating</th>
+                                        <th style="width:30px">Action</th>
+
+
 
 
                                     </tr>
@@ -42,38 +46,11 @@
                                     @foreach ($data as $d)
                                         <tr>
                                             <td> {{ $d->id }}</td>
-                                            <td> {{ $d->title }}</td>
-                                            <td>{!! $d->description !!}</td>
-
-                                            <td>
-
-                                                <?php
-                                                 $img_url = explode("|",$d->images);
-
-
-                                                 ?>
-                                                 @foreach($img_url as $img)
-                                                 <img src="{{ asset('uploads/car/'.$img) }}" width="70px" height="70px" alt="Image">
-                                                 @endforeach
-
-                                             </td>
-                                           {{-- end --}}
-
-                                            <td>
-                                                @if ($d->status == 1)
-                                                    <span class="badge badge-success">active</span>
-                                                @else
-                                                    <span class="badge badge-danger">deactive</span>
-                                                @endif
-                                            </td>
-                                            <td><button type="button" class="btn btn-warning">
-                                                    <a href="{{ route('cms.edit', $d->id) }}">
-                                                        Edit</button></a>
-                                                <button type="button" class="btn btn-danger">
-                                                    <a href="{{ route('cms.delete', $d->id) }}">
-
-                                                        delete</button></a>
-                                            </td>
+                                             <td> {{ $d->user_id }}</td>
+                                            <td> {{ $d->product_id }}</td>
+                                            <td> {{ $d->message }}</td>
+                                            <td> {{ $d->rating }}</td>
+                                            <td><button type="button" class="btn btn-warning"> view</button>
 
                                         </tr>
                                     @endforeach

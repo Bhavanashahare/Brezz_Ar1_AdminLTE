@@ -47,12 +47,13 @@
                                             @enderror
                                         </span>
                                 </div>
-                                <div class="form-group">
-                                    <label for="image">image</label>
-                                    <input type="file" name="image" class="form-control" id="image"
-                                        placeholder="Enter image" >
-                                        <span class="text-danger">
-                                            @error('image')
+
+                                    <div class="form-group">
+                                        <label for="image">image</label>
+                                        <input type="file" name="images[]" multiple  class="form-control" id="image"
+                                            placeholder="Enter image" value="images"  >
+                                            <span class="text-danger">
+                                            @error('images')
                                                 {{ $message }}
                                             @enderror
                                         </span>
