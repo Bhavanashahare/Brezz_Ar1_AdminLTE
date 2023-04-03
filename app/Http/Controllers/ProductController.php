@@ -24,36 +24,37 @@ class ProductController extends Controller
         'category_id'=>'required',
     ]);
     {
-        $data = new Product;
-        $data->title = $request->title;
-        $data->description = $request->description;
-        $data->category_id = $request->category_id;
+        $product = new Product;
+        $product->title = $request->title;
+        $product->description = $request->description;
+        $product->category_id = $request->category_id;
 
         if ($request->hasFile('image')) {
             $file = $request->image;
             $extension = $file->getClientOriginalExtension();
             $filename = time() . '.' . $extension;
             $file->move('uploads', $filename);
-            $data->image = $filename;
+            $product->image = $filename;
         }
-        $data->save();
-        return redirect()->route('product.table')->with ('message','Data Store Successfully!!!');
+        $product->save();
+        return redirect()->route('products')->with ('message','Data Store Successfully!!!');
     }
 
 }
 
-    public function table()
+    public function index()
     {
-        $data = Product::all();
-        return view('product.table', compact('data'));
+        $product = Product::with('category')->get();
+
+// dd($product);
+        return view('product.index', compact('product'));
     }
     public function edit($id)
     {
-       $data = Product::find($id);
+       $product = Product::find($id);
+       $cat=Category::all();
 //
-       $categories=Category::all();
-//
-        return view('product.edit', compact('data','categories'));
+        return view('product.edit', compact('product','cat'));
     }
     public function update(Request $request, $id)
     {
@@ -63,24 +64,27 @@ class ProductController extends Controller
 
             'category_id'=>'required',
         ]);
-        $data = Product::find($id);
-        $data->title = $request->title;
-        $data->description = $request->description;
-        $data->category_id = $request->category_id;
+        $product = Product::find($id);
+        $product->title = $request->title;
+        $product->description = $request->description;
+        $product->category_id = $request->category_id;
         if ($request->hasFile('image')) {
             $file = $request->image;
             $extension = $file->getClientOriginalExtension();
             $filename = time() . '.' . $extension;
             $file->move('uploads', $filename);
-            $data->image = $filename;
+            $product->image = $filename;
         }
-        $data->save();
-        return redirect()->route('product.table')->with ('message','Data Updated Successfully!!!');
+        $product->save();
+        return redirect()->route('products')->with ('message','Data Updated Successfully!!!');
     }
     public function delete($id)
     {
-        $data = Product::find($id);
-        $data->delete();
-        return redirect()->route('product.table')->with ('message','Data Delete Successfully!!!');
+        $product = Product::find($id);
+        $product->delete();
+        return redirect()->route('products')->with ('message','Data Delete Successfully!!!');
     }
+
+
+
 }

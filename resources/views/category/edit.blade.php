@@ -23,13 +23,13 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form id="quickForm" action="{{ route('update',$data->id) }}" method="post">
+                        <form id="quickForm" action="{{ route('categories.update',$category->id) }}" method="post">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Enter Title</label>
                                     <input type="text" name="title" class="form-control" id="exampleInputEmail1"
-                                        placeholder="Enter Title" value="{{$data->title}}">
+                                        placeholder="Enter Title" value="{{$category->title}}">
                                         <span class="text-danger">
                                             @error('title')
                                                 {{ $message }}
@@ -42,8 +42,8 @@
                                             *</span></label>
                                     <select class="form-control" name="status">
                                         <option value="">Select status Type</option>
-                                        <option value="1" @if($data['status']=='1')selected @endif>Active</option>
-                                        <option value="0" @if($data['status']=='2')selected @endif>Deactive</option>
+                                        <option value="1" @if($category['status']=='1')selected @endif>Active</option>
+                                        <option value="0" @if($category['status']=='2')selected @endif>Deactive</option>
                                     </select>
                                     <span class="text-danger">
                                         @error('status')

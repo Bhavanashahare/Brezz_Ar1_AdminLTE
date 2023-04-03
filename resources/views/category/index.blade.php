@@ -23,39 +23,44 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Color Table</h3>
-                        </div>
+                            <h3 class="card-title">Category Table</h3>
+                         </div>
+
                         <div class="card-header">
-                            <h3 class="card-title"><a href="{{ route('color.create') }}"><button type="button"
-                                        class="btn btn-primary btn-sm">Color create</button></h3></a>
-                        </div>
+                            <h3 class="card-title"><a href="{{ route('categories.create') }}"><button type="button"
+                                        class="btn btn-primary btn-sm">Create</button></h3></a>
+
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table class="table table-bordered" id="dataTable">
                                 <thead>
                                     <tr>
                                         <th style="width: 10px">ID</th>
-                                        <th style="width:20px">name</th>
-                                        <th style="width:30px">user_id</th>
-                                        <th style="width: 40px">product_id</th>
+                                        <th style="width:20px">Title</th>
+                                        <th style="width:30px">Status</th>
                                         <th style="width: 40px">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($data as $d)
+                                    @foreach ($category as $d)
                                         <tr>
                                             <td> {{ $d->id }}</td>
-                                            <td> {{ $d->name }}</td>
-                                            <td> {{ $d->user_id }} </td>
-                                            <td> {{ $d->product_id }} </td>
+                                            <td> {{ $d->title }}</td>
+                                            <td>
+                                                @if ($d->status == 1)
+                                                    <span class="badge badge-success">active</span>
+                                                @else
+                                                    <span class="badge badge-danger">deactive</span>
+                                                @endif
+                                            </td>
                                             <td>
                                                 <button type="button" class="btn btn-warning">
-                                                    <a href="{{ route('color.edit', $d->id) }}">
+                                                    <a href="{{ route('categories.edit', $d->id) }}">
                                                         Edit</button></a>
                                                 <button type="button" class="btn btn-danger">
-                                                    <a href="{{ route('color.delete', $d->id) }}">
+                                                    <a href="{{ route('categories.delete', $d->id) }}">
 
-                                                        delete</button></a>
+                                                        Delete</button></a>
                                             </td>
 
 

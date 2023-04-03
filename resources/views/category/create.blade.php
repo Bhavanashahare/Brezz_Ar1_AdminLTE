@@ -1,12 +1,5 @@
-
-
-
-
-
 @extends('layouts.master')
 @section('content')
-
-
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
@@ -20,18 +13,18 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form id="quickForm" action="{{ route('store') }}" method="post">
+                        <form id="quickForm" action="{{ route('categories.store') }}" method="post">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Enter Title</label>
                                     <input type="text" name="title" class="form-control" id="exampleInputEmail1"
-                                        placeholder="Enter Title" value="{{old('title')}}">
-                                        <span class="text-danger">
-                                            @error('title')
-                                                {{ $message }}
-                                            @enderror
-                                        </span>
+                                        placeholder="Enter Title" value="{{ old('title') }}">
+                                    <span class="text-danger">
+                                        @error('title')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
                                 </div>
 
                                 <div class="mb-3 col-md-12">

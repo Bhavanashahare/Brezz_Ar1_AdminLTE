@@ -21,24 +21,27 @@ class ColorController extends Controller
                 'product_id'=>'required',
             ]);
         // dd($request->all());
-            $data = new Color();
-            $data->name = $request->name;
-            $data->user_id = $request->user_id;
-            $data->product_id = $request->product_id;
+            $color = new Color();
+            $color->name = $request->name;
+            $color->user_id = $request->user_id;
+            $color->product_id = $request->product_id;
 
 
-            $data->save();
+            $color->save();
 
-        return redirect()->route('color.table')->with ('message','Data Update Successfully!!!');
+        return redirect()->route('colors')->with ('message','Data Update Successfully!!!');
 // return redirect('color/table');   ->  (url)
     }
 }
-public function table(){
+public function index(){
 
 
-    $data=Color::all();
-    return view('colors.table',compact ('data'));
+    $color=Color::all();
+    return view('colors.index',compact ('color'));
     }
+
+
+
 
 
 
@@ -47,10 +50,10 @@ public function table(){
 
     public function edit($id){
 
-        $data=Color::find($id);
+        $color=Color::find($id);
 
         $category=Product::all();
-        return view('colors.edit',compact('data'));
+        return view('colors.edit',compact('color'));
 
     }
 
@@ -64,19 +67,19 @@ public function table(){
             ]);
 
 
-        $data=Color::find($id);
-        $data->name = $request->name;
-        $data->user_id = $request->user_id;
-        $data->product_id = $request->product_id;
-        $data->save();
-        return redirect()->route('color.table')->with ('message','Data Update Successfully!!!');
+        $color=Color::find($id);
+        $color->name = $request->name;
+        $color->user_id = $request->user_id;
+        $color->product_id = $request->product_id;
+        $color->save();
+        return redirect()->route('colors')->with ('message','Data Update Successfully!!!');
 
         }
     }
 public function delete($id){
-    $data=Color::find($id);
-    $data->delete();
-    return redirect()->route('color.table')->with('message','Data Delete Successfully!!!');
+    $color=Color::find($id);
+    $color->delete();
+    return redirect()->route('colors')->with('message','Data Delete Successfully!!!');
 
 
 }

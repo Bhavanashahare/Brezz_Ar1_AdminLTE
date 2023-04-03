@@ -29,10 +29,10 @@ class CmsController extends Controller
             'status'=>'required',
         ]);
 
-        $data = new Cms();
-        $data->title = $request->title;
+        $cms = new Cms();
+        $cms->title = $request->title;
         // dd($request->all());
-        $data->description = $request->description;
+        $cms->description = $request->description;
 // multiple image code
         if($files=$request->file('images')){
             foreach($files as $file){
@@ -41,34 +41,34 @@ class CmsController extends Controller
             $images[]=$name;
             }
         }
-        $data->images =   implode("|",$images);
+        $cms->images =   implode("|",$images);
 
 
-        $data->status = $request->status;
+        $cms->status = $request->status;
 
 
-        $data->save();
-        return redirect()->route('cms.table')->with('message','Data Updated Successfully!!!');
+        $cms->save();
+        return redirect()->route('cms')->with('message','Data Updated Successfully!!!');
     }
 
-    public function table()
+    public function index()
     {
 
-        $data = Cms::all();
-        return view('cms.table', compact('data'));
+        $cms = Cms::all();
+        return view('cms.index', compact('cms'));
 
     }
     public function edit($id){
 
-        $data=Cms::find($id);
-        return view('cms.edit',compact('data'));
+        $cms=Cms::find($id);
+        return view('cms.edit',compact('cms'));
 
     }
 
     public function delete($id){
-        $data=Cms::find($id);
-        $data->delete();
-        return redirect()->route('cms.table')->with('message','Data Delete Successfully!!!');
+        $cms=Cms::find($id);
+        $cms->delete();
+        return redirect()->route('cms')->with('message','Data Delete Successfully!!!');
 
     }
     public function update(Request $request,$id){
@@ -80,9 +80,9 @@ class CmsController extends Controller
                 'images'=>'required',
                 'status'=>'required',
             ]);
-        $data=Cms::find($id);
-        $data->title = $request->title;
-        $data->description = $request->description;
+        $cms=Cms::find($id);
+        $cms->title = $request->title;
+        $cms->description = $request->description;
 
         if($files=$request->file('images')){
             foreach($files as $file){
@@ -91,15 +91,18 @@ class CmsController extends Controller
             $images[]=$name;
             }
         }
-        $data->images =   implode("|",$images);
+        $cms->images =   implode("|",$images);
 
-        $data->status = $request->status;
-        $data->save();
-        return redirect()->route('cms.table')->with ('message','Data Update Successfully!!!');
+        $cms->status = $request->status;
+        $cms->save();
+        return redirect()->route('cms')->with ('message','Data Update Successfully!!!');
     }
-        }
 
+    }
 }
+
+
+
 // imp.note
 //for multiple image we have to create a folder name as car in in public->uplodes in uplodes we have create car folder
 

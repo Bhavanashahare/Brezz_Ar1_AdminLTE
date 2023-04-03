@@ -23,12 +23,13 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Brand Table</h3>
+                            <h3 class="card-title">Color Table</h3>
                         </div>
                         <div class="card-header">
-                            <h3 class="card-title"><a href="{{ route('brand.create') }}"><button type="button"
-                                        class="btn btn-primary btn-sm">Brand craete</button></h3></a>
+                            <h3 class="card-title"><a href="{{ route('color.create') }}"><button type="button"
+                                        class="btn btn-primary btn-sm"> create</button></h3></a>
                         </div>
+
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table class="table table-bordered" id="dataTable">
@@ -36,13 +37,13 @@
                                     <tr>
                                         <th style="width: 10px">ID</th>
                                         <th style="width:20px">name</th>
-                                        <th style="width:30px">user_id</th>
-                                        <th style="width: 40px">product_id</th>
+                                        <th style="width:30px">User</th>
+                                        <th style="width: 40px">Product</th>
                                         <th style="width: 40px">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($data as $d)
+                                    @foreach ($color as $d)
                                         <tr>
                                             <td> {{ $d->id }}</td>
                                             <td> {{ $d->name }}</td>
@@ -50,12 +51,12 @@
                                             <td> {{ $d->product_id }} </td>
                                             <td>
                                                 <button type="button" class="btn btn-warning">
-                                                    <a href="{{ route('brand.edit', $d->id) }}">
+                                                    <a href="{{ route('color.edit', $d->id) }}">
                                                         Edit</button></a>
                                                 <button type="button" class="btn btn-danger">
-                                                    <a href="{{ route('brand.delete', $d->id) }}">
+                                                    <a href="{{ route('color.delete', $d->id) }}">
 
-                                                        delete</button></a>
+                                                        Delete</button></a>
                                             </td>
 
 

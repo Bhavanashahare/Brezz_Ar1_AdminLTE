@@ -11,15 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        if (!Schema::hasTable('reviews')){
-        Schema::create('reviews', function (Blueprint $table) {
+        Schema::create('brands', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->integer('user_id');
             $table->integer('product_id');
-            $table->integer('message');
-            $table->integer('rating');
+            $table->softDeletes();
             $table->timestamps();
-        });}
+        });
     }
 
     /**
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('reviews');
+        Schema::dropIfExists('brands');
     }
 };

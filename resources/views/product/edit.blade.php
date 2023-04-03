@@ -22,18 +22,18 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form id="quickForm" action="{{ route('product.update',$data->id) }}" method="post" enctype="multipart/form-data">
+                        <form id="quickForm" action="{{ route('product.update',$product->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="title">Enter Title</label>
                                     <input type="text" name="title" class="form-control" id="title"
-                                        placeholder="Enter Title" value="{{$data->title}}">
+                                        placeholder="Enter Title" value="{{$product->title}}">
                                 </div>
                                 <div class="form-group">
                                     <label for="description">Enter Description</label>
                                     <input type="text" name="description" class="form-control" id="description"
-                                        placeholder="Enter description" value="{{$data->description}}">
+                                        placeholder="Enter description" value="{{$product->description}}">
                                 </div>
 
                                 <div class="form-group">
@@ -43,8 +43,8 @@
                                 <div class="form-group">
                                     <label for="category">Select Category</label>
                                     <select class="form-control" id="category_id" name="category_id">
-                                        @foreach($categories as $category)
-                                        <option value="{{$category->id}}">{{$category->title}}</option>
+                                        @foreach($cat as $d)
+                                        <option value="{{$d->id}}">{{$d->title}}</option>
                                           @endforeach
                                          </select>
                                 </div>

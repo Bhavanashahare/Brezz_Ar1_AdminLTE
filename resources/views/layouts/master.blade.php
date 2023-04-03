@@ -246,11 +246,11 @@
 
 
                         <li class="nav-item menu-open">
-                            <a href="{{ route('category.table') }}" class="nav-link ">
+                            <a href="{{ route('categories') }}" class="nav-link ">
                                 <i class="nav-icon far fa-image"></i>
 
                                 <p>
-                                    Category
+                                    Categories
                                     {{-- <i class="right fas fa-angle-left"></i> --}}
                                 </p>
                             </a>
@@ -259,7 +259,7 @@
                         </li>
 
                         <li class="nav-item menu-open">
-                            <a href="{{ route('product.table') }}" class="nav-link ">
+                            <a href="{{ route('products') }}" class="nav-link ">
                                 <i class="nav-icon far fa-calendar-alt"></i>
                                 <p>
                                     Product
@@ -276,7 +276,7 @@
 
                         {{-- <li class="nav-header">EXAMPLES</li> --}}
                         <li class="nav-item">
-                            <a href="{{ route('cms.table') }}" class="nav-link">
+                            <a href="{{ route('cms') }}" class="nav-link">
                                 <i class="nav-icon far fa-calendar-alt"></i>
                                 <p>
                                     CMS
@@ -294,20 +294,19 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="{{route('brand.table')}}" class="nav-link">
+                            <a href="{{route('brands')}}" class="nav-link">
                                 <i class="nav-icon far fa-envelope"></i>
                                 <p>
-                                    Brand
-                                    <i class="fas fa-angle-left right"></i>
+                                  Brand
                                 </p>
                             </a>
                         </li>
                          <li class="nav-item">
-                            <a href="{{route('color.table')}}" class="nav-link">
+                            <a href="{{route('colors')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
                                     color
-                                    <i class="fas fa-angle-left right"></i>
+
                                 </p>
                             </a>
                         </li>
@@ -316,7 +315,7 @@
                                 <i class="nav-icon far fa-envelope"></i>
                                 <p>
                                     Review
-                                    <i class="fas fa-angle-left right"></i>
+
                                 </p>
                             </a>
                         </li>

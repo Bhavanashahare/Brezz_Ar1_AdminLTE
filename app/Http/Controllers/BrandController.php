@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Brand;
 use App\Models\Product;
+use App\Models\User;
+
 use Illuminate\Support\Facades\Auth;
 
 class BrandController extends Controller
@@ -13,8 +15,9 @@ class BrandController extends Controller
     public function create()
     {
         $products=Product::all();
+        $users=User::all();
         // dd($products);
-        return view('brands.create',compact('products'));
+        return view('brands.create',compact('products','users'));
     }
 
     public function store(Request $request)
@@ -26,30 +29,23 @@ class BrandController extends Controller
             'user_id'=>'required',
             'product_id'=>'required',
         ]);
-    // dd($request->all());
-        $data = new Brand();
-        $data->name = $request->name;
-        //$data->user_id = Auth::user_id()->id;
-        $data->user_id = 1;
+        // dd($request->all());
+        $brand = new Brand();
+        $brand->name = $request->name;
 
-        $data->product_id = $request->product_id;
+        //$brand->user_id = Auth::user_id()->id;
+        $brand->user_id = $request->user_id;
+       $brand->product_id = $request->product_id;
+         $brand->save();
+        return redirect()->route('brands') ->with('message','Data Updated Successfully!!!');
 
-
-
-        $data->save();
-        // return redirect()->route('brands.table')->with('message','Data store Successfully!!!');
-
-
-        return redirect()->route('brand.table')->with('message','Data Updated Successfully!!!');
     }
 }
 
-public function table(){
+public function index(){
+$brand=Brand::all();
 
-
-$data=Brand::all();
-
-return view('brands.table',compact ('data'));
+return view('brands.index',compact ('brand'));
 }
 
 
@@ -59,9 +55,9 @@ return view('brands.table',compact ('data'));
 
 public function edit($id){
 
-    $data=Brand::find($id);
+    $brand=Brand::find($id);
     $category=Product::all();
-    return view('brands.edit',compact('data'));
+    return view('brands.edit',compact('brand'));
 
 }
 public function update(Request $request,$id){
@@ -73,34 +69,37 @@ public function update(Request $request,$id){
             'product_id'=>'required',
         ]);
 
-
-    $data=Brand::find($id);
-    $data->name = $request->name;
-    $data->user_id = $request->user_id;
-    $data->product_id = $request->product_id;
-    $data->save();
-    return redirect()->route('brand.table')->with ('message','Data Update Successfully!!!');
+    $brand=Brand::find($id);
+    $brand->name = $request->name;
+    $brand->user_id = $request->user_id;
+    $brand->product_id = $request->product_id;
+    $brand->save();
+    return redirect()->route('brands')->with ('message','Data Update Successfully!!!');
 
         }
     }
 
+
+
 //         public function delete($id){
-//             $data=Brand::find($id);
-//             $data->delete();
+//             $brand=Brand::find($id);
+//             $brand->delete();
 //             return redirect()->route('brands.table');
 
 
 
 
 public function delete($id){
-    $data=Brand::find($id);
-    $data->delete();
-    return redirect()->route('brands.table')->with('message','Data Delete Successfully!!!');
+    $brand=Brand::find($id);
+    $brand->delete();
+    return redirect()->route('brands')->with('message','Data Delete Successfully!!!');
 
 
 }
-    }
 
 
+
+
+}
 
 

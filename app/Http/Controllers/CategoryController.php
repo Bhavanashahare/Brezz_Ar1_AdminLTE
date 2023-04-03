@@ -11,9 +11,9 @@ class CategoryController extends Controller
     {
         return view('welcome');
     }
-    public function form()
+    public function create()
     {
-        return view('category.form');
+        return view('category.create');
     }
 
     public function store(Request $request)
@@ -23,32 +23,32 @@ class CategoryController extends Controller
             'status'=>'required',
         ]);
 
-        $data = new Category();
-        $data->title = $request->title;
-        $data->status = $request->status;
+        $category = new Category();
+        $category->title = $request->title;
+        $category->status = $request->status;
         // $data->category = $request->category;
 
-        $data->save();
-        return redirect()->route('category.table')->with('message','Data Updated Successfully!!!');
+        $category->save();
+        return redirect()->route('categories')->with('message','Data Updated Successfully!!!');
     }
-    public function table()
+    public function index()
     {
 
-        $data = Category::all();
-        return view('category.table', compact('data'));
+        $category = Category::all();
+        return view('category.index', compact('category'));
 
     }
     public function edit($id){
 
-        $data=Category::find($id);
-        return view('category.edit',compact('data'));
+        $category=Category::find($id);
+        return view('category.edit',compact('category'));
 
     }
 
     public function delete($id){
-        $data=Category::find($id);
-        $data->delete();
-        return redirect()->route('category.table')->with('message','Data Delete Successfully!!!');
+        $category=Category::find($id);
+        $category->delete();
+        return redirect()->route('categories')->with('message','Data Delete Successfully!!!');
 
     }
     public function update(Request $request,$id){
@@ -57,13 +57,14 @@ class CategoryController extends Controller
                 'title'=>'required',
                 'status'=>'required',
             ]);
-        $data=Category::find($id);
-        $data->title = $request->title;
-        $data->status = $request->status;
-        $data->save();
-        return redirect()->route('category.table')->with ('message','Data Update Successfully!!!');
+        $category=Category::find($id);
+        $category->title = $request->title;
+        $category->status = $request->status;
+        $category->save();
+        return redirect()->route('categories')->with ('message','Data Update Successfully!!!');
     }
 }
+
 }
 
 

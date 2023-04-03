@@ -1,61 +1,63 @@
 @extends('layouts.master')
 @section('content')
-
-
     <!-- Main content -->
 
+
+    <section class="content">
+
         <div class="container-fluid">
-            <section class="content">
-                @if (session()->has('message'))
+            @if (session()->has('message'))
                 <div class="alert alert-success">
                     {{ session()->get('message') }}
                 </div>
             @endif
             <div class="row">
+
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Product Table</h3>
+                            <h3 class="card-title">Brand Table</h3>
                         </div>
                         <div class="card-header">
-                            <h3 class="card-title"><a href="{{ route('product.create') }}"><button type="button"
-                                        class="btn btn-primary btn-sm">Create Product</button></h3></a>
+                            <h3 class="card-title"><a href="{{ route('brands.create') }}"><button type="button"
+                                        class="btn btn-primary btn-sm">Create</button></h3></a>
+                            {{-- <h3 class="card-title"><a href="{{ route('brand.trash') }}"><button type="button"
+                                        class="btn btn-primary btn-sm">Go To brand Trash</button></h3></a> --}}
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            {{-- id datatable  id="mytable"--}}
-                            <table class="table table-bordered" id="myTable">
-                                {{-- end --}}
+                            <table class="table table-bordered" id="dataTable">
                                 <thead>
                                     <tr>
                                         <th style="width: 10px">ID</th>
-                                        <th style="width:20px">Title</th>
-                                        <th style="width:30px">description</th>
-                                        <th style="width:30px">image</th>
-                                        <th style="width:30px">Category Name</th>
-                                        <th style="width:30px">Actions</th>
-
-
+                                        <th style="width:20px">name</th>
+                                        <th style="width:30px">User</th>
+                                        <th style="width: 40px">Product</th>
+                                        <th style="width: 40px">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($data as $d)
+                                    @foreach ($brand as $d)
+
                                         <tr>
                                             <td> {{ $d->id }}</td>
-                                            <td> {{ $d->title }}</td>
-                                            <td> {{ $d->description }}</td>
-                                            <td><img
-                                                src="{{ asset('uploads/' . $d->image) }}"width="50px"height="50px" alt="">
-                                        </td>
-                                            <td>{{$d->category->title }}</td>
-                                            <td><button type="button" class="btn btn-warning">
-                                                    <a href="{{ route('product.edit', $d->id) }}">
+                                            <td> {{ $d->name }}</td>
+                                            <td> {{ $d->user_id }} </td>
+                                             <td> {{ $d->product_id }} </td>
+                                            <td>
+
+                                                <button type="button" class="btn btn-warning">
+                                                    <a href="{{ route('brands.edit', $d->id) }}">
                                                         Edit</button></a>
                                                 <button type="button" class="btn btn-danger">
-                                                    <a href="{{ route('product.delete', $d->id) }}">
 
-                                                        delete</button></a>
+                                                    {{-- soft delete --}}
+                                                    <a href="{{ route('brands', $d->id) }}">
+
+                                                        Delete</button></a>
+                                                {{-- soft delete --}}
                                             </td>
+
 
                                         </tr>
                                     @endforeach
@@ -79,21 +81,18 @@
             </div>
         </div><!-- /.container-fluid -->
     </section>
-    </div>
-
-{{-- datatable take same (id  #myTable=myTable --}}
 @endsection
 @push('scripts')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<script src="//cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.js"></script>
 
-<script>
-$(document).ready( function () {
-    $('#myTable').DataTable({
-        "pageLength" :3
-    });
-} );
-</script>
+    <script>
+        $(document).ready(function() {
+
+            $('#dataTable').DataTable({
+                "pageLength": 3
+
+            });
+        });
+    </script>
 @endpush
-
-{{-- end --}}

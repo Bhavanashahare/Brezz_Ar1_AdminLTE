@@ -22,7 +22,7 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form id="quickForm" action="{{ route('brand.update', $data->id) }}" method="post"
+                        <form id="quickForm" action="{{ route('brand.update', $brand->id) }}" method="post"
                             enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
@@ -37,7 +37,7 @@
                                     </span>
                                 </div>
                                 <div class="form-group">
-                                    <label for="user_id">User_id</label>
+                                    <label for="user_id">User</label>
                                     <input type="integer" name="user_id" class="form-control" id="user_id"
                                         placeholder="Enter user_id">
                                     <span class="text-danger">
@@ -47,7 +47,7 @@
                                     </span>
                                 </div>
                                 <div class="form-group">
-                                    <label for="product_id">Product_id</label>
+                                    <label for="product_id">Product</label>
                                     <input type="integer" name="product_id" class="form-control" id="product_id"
                                         placeholder="Enter product_id" >
                                     <span class="text-danger">

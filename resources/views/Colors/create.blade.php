@@ -38,7 +38,7 @@
                                         </span>
                                 </div>
                                 <div class="form-group">
-                                    <label for="user_id">User_id</label>
+                                    <label for="user_id">User</label>
                                     <input type="integer" class="form-control" id="user_id" placeholder="Enter user_id"
                                     name="user_id" value="{{old('user_id')}}" name="user_id">
                                         <span class="text-danger">
@@ -58,7 +58,7 @@
                                         </span>
                                 </div> --}}
                                 <div class="form-group">
-                                    <label for="exampleFormControlSelect1">Product_id</label>
+                                    <label for="exampleFormControlSelect1">Product</label>
                                     <select class="form-control" id="exampleFormControlSelect1" name="product_id" value="">
                                         @foreach($products as $product)
                                       <option value="{{$product->id}}">{{$product->title}}</option>

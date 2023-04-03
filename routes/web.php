@@ -44,43 +44,47 @@ Route::get('master', function () {
 });
 
 // Category
-Route::get('category/form', [CategoryController::class, 'form'])->name('category.form');
-Route::post('store', [CategoryController::class, 'store'])->name('store');
-Route::get('category/table', [CategoryController::class, 'table'])->name('category.table');
-Route::get('edit/{id}', [CategoryController::class, 'edit'])->name('edit');
-Route::post('update/{id}', [CategoryController::class, 'update'])->name('update');
-Route::get('delete/{id}', [CategoryController::class, 'delete'])->name('delete');
+Route::get('categories/create', [CategoryController::class, 'create'])->name('categories.create');
+Route::post('categories/store', [CategoryController::class, 'store'])->name('categories.store');
+Route::get('categories', [CategoryController::class, 'index'])->name('categories');
+Route::get('categories/edit/{id}', [CategoryController::class, 'edit'])->name('categories.edit');
+Route::post('categories/update/{id}', [CategoryController::class, 'update'])->name('categories.update');
+Route::get('categories/delete/{id}', [CategoryController::class, 'delete'])->name('categories.delete');
 
-
+// soft delete
 //Product
 Route::get('product/create', [ProductController::class, 'create'])->name('product.create');
 Route::post('product/store', [ProductController::class, 'store'])->name('product.store');
-Route::get('product/table', [ProductController::class, 'table'])->name('product.table');
+Route::get('products', [ProductController::class, 'index'])->name('products');
 Route::get('product/edit/{id}', [ProductController::class, 'edit'])->name('product.edit');
 Route::post('product/update/{id}', [ProductController::class, 'update'])->name('product.update');
 Route::get('product/delete/{id}', [ProductController::class, 'delete'])->name('product.delete');
+
 
 // CMS
 
 Route::get('cms/create', [CmsController::class, 'create'])->name('cms.create');
 Route::post('cms/store', [CmsController::class, 'store'])->name('cms.store');
-Route::get('cms/table', [CmsController::class, 'table'])->name('cms.table');
+Route::get('cms', [CmsController::class, 'index'])->name('cms');
 Route::get('cms/edit/{id}', [CmsController::class, 'edit'])->name('cms.edit');
 Route::post('cms/update/{id}', [CmsController::class, 'update'])->name('cms.update');
 Route::get('cms/delete/{id}', [CmsController::class, 'delete'])->name('cms.delete');
 
 
+// soft delete
 //order
 
 Route::get('order/index', [OrderController::class, 'index'])->name('order.index');
 
+
 //Brand
-Route::get('brand/create', [BrandController::class, 'create'])->name('brand.create');
-Route::post('brand/store', [BrandController::class, 'store'])->name('brand.store');
-Route::get('brand/table', [BrandController::class, 'table'])->name('brand.table');
-Route::get('brand/edit/{id}', [BrandController::class, 'edit'])->name('brand.edit');
+Route::get('brands/create', [BrandController::class, 'create'])->name('brands.create');
+Route::post('brands/store', [BrandController::class, 'store'])->name('brands.store');
+Route::get('brands', [BrandController::class, 'index'])->name('brands');
+Route::get('brands/edit/{id}', [BrandController::class, 'edit'])->name('brands.edit');
 Route::post('brand/update/{id}', [BrandController::class, 'update'])->name('brand.update');
 Route::get('brand/delete/{id}', [BrandController::class, 'delete'])->name('brand.delete');
+// soft delete
 
 
 // colour
@@ -88,12 +92,13 @@ Route::get('brand/delete/{id}', [BrandController::class, 'delete'])->name('brand
 
 Route::get('color/create', [ColorController::class, 'create'])->name('color.create');
 Route::post('color/store', [ColorController::class, 'store'])->name('color.store');
-Route::get('color/table', [ColorController::class, 'table'])->name('color.table');
+Route::get('colors', [ColorController::class, 'index'])->name('colors');
 Route::get('color/edit/{id}', [ColorController::class, 'edit'])->name('color.edit');
 Route::post('color/update/{id}', [ColorController::class, 'update'])->name('color.update');
 Route::get('color/delete/{id}', [ColorController::class, 'delete'])->name('color.delete');
 
 
+// soft delete
 
 // review (create with database)
 

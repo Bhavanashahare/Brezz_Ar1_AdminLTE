@@ -23,7 +23,7 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form id="quickForm" action="{{ route('cms.update',$data->id) }}" method="post"  enctype="multipart/form-data">
+                        <form id="quickForm" action="{{ route('cms.update',$cms->id) }}" method="post"  enctype="multipart/form-data">
 
                             @csrf
                             <div class="card-body">
@@ -63,8 +63,8 @@
                                             *</span></label>
                                     <select class="form-control" name="status">
                                         <option value="">Select status Type</option>
-                                        <option value="1" @if($data['status']=='1')selected @endif>Active</option>
-                                        <option value="0" @if($data['status']=='2')selected @endif>Deactive</option>
+                                        <option value="1" @if($cms['status']=='1')selected @endif>Active</option>
+                                        <option value="0" @if($cms['status']=='2')selected @endif>Deactive</option>
                                     </select>
                                     <span class="text-danger">
                                         @error('status')
