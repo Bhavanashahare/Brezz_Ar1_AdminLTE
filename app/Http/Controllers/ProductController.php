@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Product;
+
 use COM;
 
 class ProductController extends Controller
@@ -64,6 +65,8 @@ class ProductController extends Controller
 
             'category_id'=>'required',
         ]);
+
+
         $product = Product::find($id);
         $product->title = $request->title;
         $product->description = $request->description;

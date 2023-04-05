@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('content')
+<script src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
      @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -30,10 +31,11 @@
                                     <input type="text" name="title" class="form-control" id="title"
                                         placeholder="Enter Title" value="{{$product->title}}">
                                 </div>
+
                                 <div class="form-group">
                                     <label for="description">Enter Description</label>
-                                    <input type="text" name="description" class="form-control" id="description"
-                                        placeholder="Enter description" value="{{$product->description}}">
+                                    <textarea type="text" name="description" class="form-control" id="description"
+                                        placeholder="Enter description" value="{{$product->description}}"></textarea>
                                 </div>
 
                                 <div class="form-group">
@@ -72,6 +74,12 @@
                 <!-- /.card-body -->
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary">update</button>
+                    <script>
+                        ClassicEditor
+                        .create(document.querySelector('#description'))
+                        .catch(error=>{
+                          console.error(error);
+                        })</script>
                 </div>
                 </form>
             </div>

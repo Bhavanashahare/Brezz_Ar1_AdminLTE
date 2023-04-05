@@ -51,11 +51,10 @@
                                                         Edit</button></a>
                                                 <button type="button" class="btn btn-danger">
 
-                                                    {{-- soft delete --}}
-                                                    <a href="{{ route('brands', $d->id) }}">
+                                                    <a href="{{ route('brand.delete', $d->id) }}">
 
                                                         Delete</button></a>
-                                                {{-- soft delete --}}
+
                                             </td>
 
 

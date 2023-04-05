@@ -8,7 +8,7 @@ use App\Http\Controllers\CmsController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
-
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 // i didn't migrate table on review and order in table we cannot migrate or create table or datable//
@@ -24,9 +24,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -51,7 +51,7 @@ Route::get('categories/edit/{id}', [CategoryController::class, 'edit'])->name('c
 Route::post('categories/update/{id}', [CategoryController::class, 'update'])->name('categories.update');
 Route::get('categories/delete/{id}', [CategoryController::class, 'delete'])->name('categories.delete');
 
-// soft delete
+
 //Product
 Route::get('product/create', [ProductController::class, 'create'])->name('product.create');
 Route::post('product/store', [ProductController::class, 'store'])->name('product.store');
@@ -104,3 +104,19 @@ Route::get('color/delete/{id}', [ColorController::class, 'delete'])->name('color
 
 Route::get('review/index', [ReviewController::class, 'index'])->name('review.index');
 //
+
+
+
+// e-comerce//
+Route::get('/', [WelcomeController::class, 'index'])->name('index');
+
+Route::get('/contact', [WelcomeController::class, 'contact'])->name('contact');
+
+
+Route::get('/about', [WelcomeController::class, 'about'])->name('about');
+
+
+
+//  Route::get('/master', function () {
+//     return view('frontend.layouts.master');
+//  });
