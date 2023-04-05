@@ -148,20 +148,23 @@
 
     <div class="site-section site-blocks-2">
       <div class="container">
+
         <div class="row">
+            @foreach($category as $cate)
           <div class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay="">
             <a class="block-2-item" href="#">
               <figure class="image">
-                <img src="images/women.jpg" alt="" class="img-fluid">
+                <img src="{{ asset('uploads/' . $cate->image)}}" width="320px" height="217.14px"  alt="" >
+
               </figure>
               <div class="text">
                 <span class="text-uppercase">Collections</span>
-                <h3>Women</h3>
+                <h3>{{$cate->title}}</h3>
               </div>
             </a>
           </div>
-          <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
-            <a class="block-2-item" href="#">
+           {{-- <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
+            <a class="block-2-item" href="{{$cate->title}}">
               <figure class="image">
                 <img src="images/children.jpg" alt="" class="img-fluid">
               </figure>
@@ -170,8 +173,8 @@
                 <h3>Children</h3>
               </div>
             </a>
-          </div>
-          <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
+          </div> --}}
+          {{-- <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
             <a class="block-2-item" href="#">
               <figure class="image">
                 <img src="images/men.jpg" alt="" class="img-fluid">
@@ -181,9 +184,11 @@
                 <h3>Men</h3>
               </div>
             </a>
-          </div>
+          </div> --}}
+@endforeach
         </div>
       </div>
+
     </div>
 
     <div class="site-section block-3 site-blocks-2 bg-light">
@@ -208,7 +213,7 @@
                   <div class="block-4-text p-4">
                     <h3><a href="#">{{$product->title}}</a></h3>
                     <p class="mb-0">{!!$product->description!!}</p>
-                    <p class="text-primary font-weight-bold">$50</p>
+                    <p class="text-primary font-weight-bold">₹ 50</p>
                   </div>
                 </div>
               </div>
@@ -228,7 +233,7 @@
         </div>
         <div class="row align-items-center">
           <div class="col-md-12 col-lg-7 mb-5">
-            <a href="#"><img src="images/blog_1.jpg" alt="Image placeholder" class="img-fluid rounded"></a>
+            <a href="#"><img src="{{ asset('uploads/' . $img->image)}}" alt="Image placeholder" class="img-fluid rounded"></a>
           </div>
           <div class="col-md-12 col-lg-5 text-center pl-md-5">
             <h2><a href="#">50% less in all items</a></h2>

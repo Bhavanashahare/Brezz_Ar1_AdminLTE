@@ -25,6 +25,14 @@ class CategoryController extends Controller
 
         $category = new Category();
         $category->title = $request->title;
+
+        if ($request->hasFile('image')) {
+            $file = $request->image;
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads', $filename);
+            $category->image = $filename;
+        }
         $category->status = $request->status;
         // $data->category = $request->category;
 
@@ -59,6 +67,13 @@ class CategoryController extends Controller
             ]);
         $category=Category::find($id);
         $category->title = $request->title;
+        if ($request->hasFile('image')) {
+            $file = $request->image;
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads', $filename);
+            $category->image = $filename;
+        }
         $category->status = $request->status;
         $category->save();
         return redirect()->route('categories')->with ('message','Data Update Successfully!!!');

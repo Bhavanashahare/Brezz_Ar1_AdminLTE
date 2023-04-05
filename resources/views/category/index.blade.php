@@ -37,6 +37,7 @@
                                     <tr>
                                         <th style="width: 10px">ID</th>
                                         <th style="width:20px">Title</th>
+                                        <th style="width:20px">image</th>
                                         <th style="width:30px">Status</th>
                                         <th style="width: 40px">Action</th>
                                     </tr>
@@ -46,6 +47,9 @@
                                         <tr>
                                             <td> {{ $d->id }}</td>
                                             <td> {{ $d->title }}</td>
+                                            <td><img
+                                                src="{{ asset('uploads/' . $d->image) }}"width="50px"height="50px" alt="">
+                                        </td>
                                             <td>
                                                 @if ($d->status == 1)
                                                     <span class="badge badge-success">active</span>

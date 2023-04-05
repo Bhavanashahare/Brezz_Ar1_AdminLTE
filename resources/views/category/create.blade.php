@@ -13,9 +13,9 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form id="quickForm" action="{{ route('categories.store') }}" method="post">
+                        <form id="quickForm" action="{{ route('categories.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
-                            <div class="card-body">
+                            <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Enter Title</label>
                                     <input type="text" name="title" class="form-control" id="exampleInputEmail1"
@@ -26,10 +26,26 @@
                                         @enderror
                                     </span>
                                 </div>
+                            </div>
 
-                                <div class="mb-3 col-md-12">
-                                    <label class="form-label" for="status">Status Type<span class="text-danger">
-                                            *</span></label>
+
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Enter Image</label>
+                                    <input type="file" name="image" class="form-control" id="exampleInputEmail1"
+                                        placeholder="Enter image" value="{{ old('image') }}">
+                                    <span class="text-danger">
+                                        @error('image')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="form-label" for="status">Status Type </label>
                                     <select class="form-control" name="status">
                                         <option value="">Select status Type</option>
                                         <option value="1">Active</option>
@@ -40,10 +56,7 @@
                                             {{ $message }}
                                         @enderror
                                     </span>
-
-
                                 </div>
-
                             </div>
 
                     </div>
