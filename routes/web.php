@@ -9,6 +9,8 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\Front\FrontController;
+
 use Illuminate\Support\Facades\Route;
 
 // i didn't migrate table on review and order in table we cannot migrate or create table or datable//
@@ -38,7 +40,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 Route::get('master', function () {
     return view('layouts.master');
 });
@@ -105,18 +107,10 @@ Route::get('color/delete/{id}', [ColorController::class, 'delete'])->name('color
 Route::get('review/index', [ReviewController::class, 'index'])->name('review.index');
 //
 
-
-
 // e-comerce//
 Route::get('/', [WelcomeController::class, 'index'])->name('index');
-
 Route::get('/contact', [WelcomeController::class, 'contact'])->name('contact');
-
-
 Route::get('/about', [WelcomeController::class, 'about'])->name('about');
 
-
-
-//  Route::get('/master', function () {
-//     return view('frontend.layouts.master');
-//  });
+// Layouts//
+Route::get('home', [FrontController::class, 'home'])->name('home');
