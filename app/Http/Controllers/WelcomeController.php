@@ -27,5 +27,24 @@ class WelcomeController extends Controller
         return view('e-comerce.about');
     }
 
+    public function shop(){
+        return view('e-comerce.shop');
+    }
+
+    public function shopsingle(){
+        return view('e-comerce.shop-single');
+    }
+    public function checkout(){
+        return view('e-comerce.checkout');
+    }
+
+    public function thankyou(){
+        return view('e-comerce.thankyou');
+    }
+
+    public function cart(){
+        return view('e-comerce.cart');
+    }
+
 
 }

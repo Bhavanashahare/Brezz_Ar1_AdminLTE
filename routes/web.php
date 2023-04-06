@@ -111,6 +111,14 @@ Route::get('review/index', [ReviewController::class, 'index'])->name('review.ind
 Route::get('/', [WelcomeController::class, 'index'])->name('index');
 Route::get('/contact', [WelcomeController::class, 'contact'])->name('contact');
 Route::get('/about', [WelcomeController::class, 'about'])->name('about');
+Route::get('/shop', [WelcomeController::class, 'shop'])->name('shop');
+Route::get('/shop-single', [WelcomeController::class, 'shopsingle'])->name('shopsingle');
+Route::get('/cart', [WelcomeController::class, 'cart'])->name('cart');
+Route::get('/checkout', [WelcomeController::class, 'checkout'])->name('checkout');
+Route::get('/thankyou', [WelcomeController::class, 'thankyou'])->name('thankyou');
+
 
 // Layouts//
 Route::get('home', [FrontController::class, 'home'])->name('home');
+Route::get('test', [FrontController::class, 'test'])->name('test');
+

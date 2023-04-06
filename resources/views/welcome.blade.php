@@ -1,6 +1,4 @@
-@extends('frontend.layouts.footer')
 @extends('frontend.layouts.master')
-@extends('frontend.layouts.header')
 @section('content')
     <div class="site-wrap">
         <div class="site-blocks-cover" style="background-image: url(images/hero_1.jpg);" data-aos="fade">
