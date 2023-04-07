@@ -12,7 +12,7 @@
 
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
               <div class="site-logo">
-                <a href="index.html" class="js-logo-clone">Shoppers</a>
+                <a href="{{route('index')}}" class="js-logo-clone">Shoppers</a>
               </div>
             </div>
 
@@ -22,7 +22,7 @@
                   <li><a href="#"><span class="icon icon-person"></span></a></li>
                   <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
                   <li>
-                    <a href="cart.html" class="site-cart">
+                    <a href="{{route('cart')}}" class="site-cart">
                       <span class="icon icon-shopping_cart"></span>
                       <span class="count">2</span>
                     </a>
@@ -62,10 +62,10 @@
                 <li><a href="#">Menu Three</a></li>
               </ul>
             </li>
-            <li><a href="shop.html">Shop</a></li>
+            <li><a href="{{route('shop')}}">Shop</a></li>
             <li><a href="#">Catalogue</a></li>
             <li><a href="#">New Arrivals</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="{{route('contact')}}">Contact</a></li>
           </ul>
         </div>
       </nav>

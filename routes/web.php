@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ColorController;
@@ -10,8 +10,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\Front\FrontController;
-
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Front\ContactController;
 
 // i didn't migrate table on review and order in table we cannot migrate or create table or datable//
 
@@ -75,9 +74,7 @@ Route::get('cms/delete/{id}', [CmsController::class, 'delete'])->name('cms.delet
 
 // soft delete
 //order
-
 Route::get('order/index', [OrderController::class, 'index'])->name('order.index');
-
 
 //Brand
 Route::get('brands/create', [BrandController::class, 'create'])->name('brands.create');
@@ -90,8 +87,6 @@ Route::get('brand/delete/{id}', [BrandController::class, 'delete'])->name('brand
 
 
 // colour
-
-
 Route::get('color/create', [ColorController::class, 'create'])->name('color.create');
 Route::post('color/store', [ColorController::class, 'store'])->name('color.store');
 Route::get('colors', [ColorController::class, 'index'])->name('colors');
@@ -103,10 +98,8 @@ Route::get('color/delete/{id}', [ColorController::class, 'delete'])->name('color
 // soft delete
 
 // review (create with database)
-
 Route::get('review/index', [ReviewController::class, 'index'])->name('review.index');
 //
-
 // e-comerce//
 Route::get('/', [WelcomeController::class, 'index'])->name('index');
 Route::get('/contact', [WelcomeController::class, 'contact'])->name('contact');
@@ -118,7 +111,9 @@ Route::get('/checkout', [WelcomeController::class, 'checkout'])->name('checkout'
 Route::get('/thankyou', [WelcomeController::class, 'thankyou'])->name('thankyou');
 
 
-// Layouts//
+// Layouts Only For Cheack Purpose//
 Route::get('home', [FrontController::class, 'home'])->name('home');
 Route::get('test', [FrontController::class, 'test'])->name('test');
 
+//Contact//
+Route::post('contact-message',[ContactController::class,'contact_message_store'])->name('contact.message');
