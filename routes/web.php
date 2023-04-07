@@ -1,14 +1,14 @@
 <?php
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BrandController;
-use App\Http\Controllers\ReviewController;
-use App\Http\Controllers\ColorController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\CmsController;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Admin\ReviewController;
+use App\Http\Controllers\Admin\ColorController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\CmsController;
+use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\WelcomeController;
 use App\Http\Controllers\Front\FrontController;
 use App\Http\Controllers\Front\ContactController;
 
@@ -100,7 +100,7 @@ Route::get('color/delete/{id}', [ColorController::class, 'delete'])->name('color
 // review (create with database)
 Route::get('review/index', [ReviewController::class, 'index'])->name('review.index');
 //
-// e-comerce//
+// e-comerce //
 Route::get('/', [WelcomeController::class, 'index'])->name('index');
 Route::get('/contact', [WelcomeController::class, 'contact'])->name('contact');
 Route::get('/about', [WelcomeController::class, 'about'])->name('about');
@@ -110,10 +110,5 @@ Route::get('/cart', [WelcomeController::class, 'cart'])->name('cart');
 Route::get('/checkout', [WelcomeController::class, 'checkout'])->name('checkout');
 Route::get('/thankyou', [WelcomeController::class, 'thankyou'])->name('thankyou');
 
-
-// Layouts Only For Cheack Purpose//
-Route::get('home', [FrontController::class, 'home'])->name('home');
-Route::get('test', [FrontController::class, 'test'])->name('test');
-
 //Contact//
-Route::post('contact-message',[ContactController::class,'contact_message_store'])->name('contact.message');
+Route::post('contact/message/store',[ContactController::class,'contact_message_store'])->name('contact.message.store');

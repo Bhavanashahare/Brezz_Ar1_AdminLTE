@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('c_lname');
             $table->string('c_email');
             $table->string('c_subject');
-            $table->string('c_message');
+            $table->string('c_message')->nullable();
             $table->timestamps();
         });
     }

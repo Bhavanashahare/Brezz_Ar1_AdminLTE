@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\Models\welcome;
@@ -21,29 +23,29 @@ class WelcomeController extends Controller
     }
 
     public function contact(){
-        return view('e-comerce.contact');
+        return view('frontend.e-comerce.contact');
     }
     public function about(){
-        return view('e-comerce.about');
+        return view('frontend.e-comerce.about');
     }
 
     public function shop(){
-        return view('e-comerce.shop');
+        return view('frontend.e-comerce.shop');
     }
 
     public function shopsingle(){
-        return view('e-comerce.shop-single');
+        return view('frontend.e-comerce.shop-single');
     }
     public function checkout(){
-        return view('e-comerce.checkout');
+        return view('frontend.e-comerce.checkout');
     }
 
     public function thankyou(){
-        return view('e-comerce.thankyou');
+        return view('frontend.e-comerce.thankyou');
     }
 
     public function cart(){
-        return view('e-comerce.cart');
+        return view('frontend.e-comerce.cart');
     }
 
 
