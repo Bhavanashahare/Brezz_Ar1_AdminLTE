@@ -8,7 +8,7 @@ use App\Http\Controllers\Admin\CmsController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProfileController;
-use App\Http\Controllers\Admin\WelcomeController;
+use App\Http\Controllers\Front\WelcomeController;
 use App\Http\Controllers\Front\FrontController;
 use App\Http\Controllers\Front\ContactController;
 
@@ -25,9 +25,9 @@ use App\Http\Controllers\Front\ContactController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/admin/dashboard', function () {
+    return view('home');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');

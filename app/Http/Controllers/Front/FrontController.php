@@ -9,7 +9,7 @@ class FrontController extends Controller
 {
 
    public function master(){
-        return view('frontend.layouts.master');
+        return view('front.layouts.master');
     }
 
 

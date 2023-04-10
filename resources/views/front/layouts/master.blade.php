@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Shoppers &mdash; Colorlib e-Commerce Template</title>
+    <title>@yield('title') | {{ env('APP_NAME') ?? 'Switch Store' }}</title>
+    {{-- <meta name="csrf-token" content="{{ csrf_token() }}" /> --}}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -22,9 +23,9 @@
 
   </head>
   <body>
-  @include('frontend.layouts.header')
+  @include('front.layouts.header')
   @yield('content')
-  @include('frontend.layouts.footer')
+  @include('front.layouts.footer')
 
 
   <script src="js/jquery-3.3.1.min.js"></script>

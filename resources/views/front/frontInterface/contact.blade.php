@@ -1,4 +1,5 @@
-@extends('frontend.layouts.master')
+@extends('front.layouts.master')
+@section('title', 'Contact')
 @section('content')
 <div class="bg-light py-3">
     <div class="container">

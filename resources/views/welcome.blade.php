@@ -1,4 +1,5 @@
-@extends('frontend.layouts.master')
+@extends('front.layouts.master')
+@section('title', 'Home')
 @section('content')
     <div class="site-wrap">
         <div class="site-blocks-cover" style="background-image: url(images/hero_1.jpg);" data-aos="fade">
