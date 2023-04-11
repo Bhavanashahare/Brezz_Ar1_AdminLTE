@@ -114,8 +114,9 @@ Route::get('/contact', [WelcomeController::class, 'contact'])->name('contact');
 
 
 Route::get('/about', [WelcomeController::class, 'about'])->name('about');
+Route::get('/shop', [WelcomeController::class, 'shop'])->name('shop');
 
-
+//  Route::get('/home', [WelcomeController::class, 'home'])->name('home');
 
 //  Route::get('/master', function () {
 //     return view('frontend.layouts.master');
