@@ -28,8 +28,8 @@
                         </div>
                         <div class="text">
                             <h2 class="text-uppercase">Free Shipping</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer
-                                accumsan tincidunt fringilla.</p>
+                            <p>Free shipping is a popular marketing strategy used by ecommerce
+                                websites to attract and retain customers.</p>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="100">
@@ -38,8 +38,8 @@
                         </div>
                         <div class="text">
                             <h2 class="text-uppercase">Free Returns</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer
-                                accumsan tincidunt fringilla.</p>
+                            <p>Free returns is another popular marketing strategy used by ecommerce
+                                websites to build trust and confidence with their customers.</p>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="200">
@@ -48,8 +48,8 @@
                         </div>
                         <div class="text">
                             <h2 class="text-uppercase">Customer Support</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer
-                                accumsan tincidunt fringilla.</p>
+                            <p>Customer support is a critical aspect of any ecommerce website,
+                                as it helps businesses to build trust and loyalty with their customers.</p>
                         </div>
                     </div>
                 </div>

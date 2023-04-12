@@ -62,7 +62,7 @@
       </div>
       <nav class="site-navigation text-right text-md-center" role="navigation">
         <div class="container">
-          <ul class="site-menu js-clone-nav d-none d-md-block">
+          {{-- <ul class="site-menu js-clone-nav d-none d-md-block">
             <li class="has-children">
               <a href="index.html">Home</a>
               <ul class="dropdown">
@@ -91,7 +91,7 @@
             <li><a href="#">Catalogue</a></li>
             <li><a href="#">New Arrivals</a></li>
             <li class="active"><a href="contact.html">Contact</a></li>
-          </ul>
+          </ul> --}}
         </div>
       </nav>
     </header>
@@ -253,6 +253,7 @@
   <script src="js/owl.carousel.min.js"></script>
   <script src="js/jquery.magnific-popup.min.js"></script>
   <script src="js/aos.js"></script>
+
   <script src="js/main.js"></script>
 
   </body>

@@ -328,6 +328,16 @@
                             </a>
                         </li>
 
+                        <li class="nav-item">
+                            <a href="{{ route('contact') }}" class="nav-link">
+                                <i class="nav-icon far fa-envelope"></i>
+                                <p>
+                                    Contact
+
+                                </p>
+                            </a>
+                        </li>
+
 
                         <li class="nav-item">
                             {{-- logout   view/auth/layouts/navigation.blade.php se uthaya --}}

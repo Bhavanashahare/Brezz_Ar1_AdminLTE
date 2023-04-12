@@ -26,11 +26,13 @@ class WelcomeController extends Controller
         return view('front.frontInterface.contact');
     }
     public function about(){
-        return view('front.frontInterface.about');
+$product=Product::get()->last();
+        return view('front.frontInterface.about',compact('product'));
     }
 
     public function shop(){
-        return view('front.frontInterface.shop');
+        $categories = Category::all();
+        return view('front.frontInterface.shop',compact('categories'));
     }
 
     public function shopsingle(){
