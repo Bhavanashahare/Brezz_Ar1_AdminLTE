@@ -13,7 +13,8 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form id="quickForm" action="{{ route('categories.store') }}" method="post" enctype="multipart/form-data">
+                        <form id="quickForm" action="{{ route('categories.store') }}" method="post"
+                            enctype="multipart/form-data">
                             @csrf
                             <div class="col-md-12">
                                 <div class="form-group">
@@ -27,9 +28,6 @@
                                     </span>
                                 </div>
                             </div>
-
-
-
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Enter Image</label>

@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
 
@@ -15,7 +15,7 @@ class CmsController extends Controller
 
     public function create()
     {
-        return view('cms.create');
+        return view('admin.cms.create');
     }
 
 
@@ -55,13 +55,13 @@ class CmsController extends Controller
     {
 
         $cms = Cms::all();
-        return view('cms.index', compact('cms'));
+        return view('admin.cms.index', compact('cms'));
 
     }
     public function edit($id){
 
         $cms=Cms::find($id);
-        return view('cms.edit',compact('cms'));
+        return view('admin.cms.edit',compact('cms'));
 
     }
 

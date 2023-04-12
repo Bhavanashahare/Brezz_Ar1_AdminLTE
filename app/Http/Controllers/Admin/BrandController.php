@@ -1,8 +1,9 @@
 <?php
-
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
+
 use App\Models\Brand;
 use App\Models\Product;
 use App\Models\User;
@@ -17,7 +18,7 @@ class BrandController extends Controller
         $products=Product::all();
         $users=User::all();
         // dd($products);
-        return view('brands.create',compact('products','users'));
+        return view('admin.brands.create',compact('products','users'));
     }
 
     public function store(Request $request)
@@ -45,7 +46,7 @@ class BrandController extends Controller
 public function index(){
 $brand=Brand::all();
 
-return view('brands.index',compact ('brand'));
+return view('admin.brands.index',compact ('brand'));
 }
 
 
@@ -57,7 +58,7 @@ public function edit($id){
 
     $brand=Brand::find($id);
     $category=Product::all();
-    return view('brands.edit',compact('brand'));
+    return view('admin.brands.edit',compact('brand'));
 
 }
 public function update(Request $request,$id){

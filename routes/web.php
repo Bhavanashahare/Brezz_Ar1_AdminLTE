@@ -1,15 +1,16 @@
 <?php
-
-use App\Http\Controllers\BrandController;
-use App\Http\Controllers\ReviewController;
-use App\Http\Controllers\ColorController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\CmsController;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Admin\ReviewController;
+use App\Http\Controllers\Admin\ColorController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\CmsController;
+use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Front\WelcomeController;
+use App\Http\Controllers\Front\FrontController;
+use App\Http\Controllers\Front\ContactController;
 
 // i didn't migrate table on review and order in table we cannot migrate or create table or datable//
 
@@ -24,9 +25,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/admin/dashboard', function () {
+    return view('home');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -38,7 +39,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 Route::get('master', function () {
     return view('layouts.master');
 });
@@ -73,9 +74,7 @@ Route::get('cms/delete/{id}', [CmsController::class, 'delete'])->name('cms.delet
 
 // soft delete
 //order
-
 Route::get('order/index', [OrderController::class, 'index'])->name('order.index');
-
 
 //Brand
 Route::get('brands/create', [BrandController::class, 'create'])->name('brands.create');
@@ -88,8 +87,6 @@ Route::get('brand/delete/{id}', [BrandController::class, 'delete'])->name('brand
 
 
 // colour
-
-
 Route::get('color/create', [ColorController::class, 'create'])->name('color.create');
 Route::post('color/store', [ColorController::class, 'store'])->name('color.store');
 Route::get('colors', [ColorController::class, 'index'])->name('colors');
@@ -101,23 +98,17 @@ Route::get('color/delete/{id}', [ColorController::class, 'delete'])->name('color
 // soft delete
 
 // review (create with database)
-
 Route::get('review/index', [ReviewController::class, 'index'])->name('review.index');
 //
-
-
-
-// e-comerce//
+// e-comerce //
 Route::get('/', [WelcomeController::class, 'index'])->name('index');
-
 Route::get('/contact', [WelcomeController::class, 'contact'])->name('contact');
-
-
 Route::get('/about', [WelcomeController::class, 'about'])->name('about');
 Route::get('/shop', [WelcomeController::class, 'shop'])->name('shop');
+Route::get('/shop-single', [WelcomeController::class, 'shopsingle'])->name('shopsingle');
+Route::get('/cart', [WelcomeController::class, 'cart'])->name('cart');
+Route::get('/checkout', [WelcomeController::class, 'checkout'])->name('checkout');
+Route::get('/thankyou', [WelcomeController::class, 'thankyou'])->name('thankyou');
 
-//  Route::get('/home', [WelcomeController::class, 'home'])->name('home');
-
-//  Route::get('/master', function () {
-//     return view('frontend.layouts.master');
-//  });
+//Contact//
+Route::post('contact/message/store',[ContactController::class,'contact_message_store'])->name('contact.message.store');

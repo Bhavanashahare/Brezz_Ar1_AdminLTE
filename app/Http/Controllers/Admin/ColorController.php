@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
 use App\Models\Color;
 use Illuminate\Http\Request;
 use App\Models\Product;
@@ -9,7 +9,7 @@ class ColorController extends Controller
 {
     public function create(){
         $products=Product::all();
-        return view('colors.create',compact ('products'));
+        return view('admin.colors.create',compact ('products'));
     }
     public function store(Request $request)
 
@@ -37,7 +37,7 @@ public function index(){
 
 
     $color=Color::all();
-    return view('colors.index',compact ('color'));
+    return view('admin.colors.index',compact ('color'));
     }
 
 
@@ -53,7 +53,7 @@ public function index(){
         $color=Color::find($id);
 
         $category=Product::all();
-        return view('colors.edit',compact('color'));
+        return view('admin.colors.edit',compact('color'));
 
     }
 
