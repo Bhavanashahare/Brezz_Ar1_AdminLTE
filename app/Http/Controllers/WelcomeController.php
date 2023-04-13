@@ -28,6 +28,8 @@ class WelcomeController extends Controller
     }
 
     public function shop(){
+
+    
         return view('e-comerce.shop');
     }
     public function home(){

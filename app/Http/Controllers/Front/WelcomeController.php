@@ -31,8 +31,10 @@ $product=Product::get()->last();
     }
 
     public function shop(){
+        $products=Product::paginate(3);
         $categories = Category::all();
-        return view('front.frontInterface.shop',compact('categories'));
+
+        return view('front.frontInterface.shop',compact('products','categories'));
     }
 
     public function shopsingle(){
@@ -50,5 +52,8 @@ $product=Product::get()->last();
         return view('front.frontInterface.cart');
     }
 
+    public function user_profile(){
+        return view('front.frontInterface.user_profile');
+    }
 
 }
