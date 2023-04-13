@@ -109,6 +109,6 @@ Route::get('/shop-single', [WelcomeController::class, 'shopsingle'])->name('shop
 Route::get('/cart', [WelcomeController::class, 'cart'])->name('cart');
 Route::get('/checkout', [WelcomeController::class, 'checkout'])->name('checkout');
 Route::get('/thankyou', [WelcomeController::class, 'thankyou'])->name('thankyou');
-
+Route::get('/user_profile', [WelcomeController::class, 'user_profile'])->name('user_profile');
 //Contact//
 Route::post('contact/message/store',[ContactController::class,'contact_message_store'])->name('contact.message.store');
