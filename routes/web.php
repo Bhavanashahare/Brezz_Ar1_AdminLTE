@@ -27,7 +27,7 @@ use App\Http\Controllers\Front\ContactController;
 
 Route::get('/admin/dashboard', function () {
     return view('home');
-});
+})->middleware(['auth', 'verified'])->name('admin.dashboard');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
