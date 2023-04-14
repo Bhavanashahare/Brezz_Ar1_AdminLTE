@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
 
+namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
+
 class RegisteredUserController extends Controller
 {
     /**
@@ -22,6 +23,7 @@ class RegisteredUserController extends Controller
     {
         return view('auth.register');
     }
+
 
     /**
      * Handle an incoming registration request.
@@ -37,7 +39,9 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
+
         // change
+
 
         $user =new  User();
         $user ->name=$request->name;
@@ -50,20 +54,27 @@ class RegisteredUserController extends Controller
             $file->move('uploads', $filename);
             $user->image = $filename;
 
-        }
-          $user->save;
-        //
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
 
-        ]);
+        }
+          $user->save();
+        //   dd($user);
+
+
+
+
+
 
         event(new Registered($user));
 
+
         Auth::login($user);
+
 
         return redirect(RouteServiceProvider::HOME);
     }
 }
+
+
+
+
+
