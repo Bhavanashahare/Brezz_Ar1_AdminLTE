@@ -23,11 +23,12 @@ use App\Http\Controllers\Front\ContactController;
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
-*/
+                            */
 
-Route::get('/admin/dashboard', function () {
-    return view('home');
-})->middleware(['auth', 'verified'])->name('admin.dashboard');
+                            // Route::get('/admin/dashboard', function () {
+                            //     return view('home');
+                            // })->middleware(['auth', 'verified'])->name('admin.dashboard');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -43,6 +44,10 @@ require __DIR__ . '/auth.php';
 Route::get('master', function () {
     return view('layouts.master');
 });
+
+
+
+Route::get('admin/dashboard/layout',[WelcomeController::class,'dashboard']);
 
 // Category
 Route::get('categories/create', [CategoryController::class, 'create'])->name('categories.create');

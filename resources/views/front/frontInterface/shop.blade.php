@@ -206,7 +206,7 @@
           <div class="row" data-aos="fade-up">
             <div class="col-md-12 text-center">
               <div class="">
-                <ul  class="active">{{$products->links()}}>
+                <ul  class="active">{{$products->links()}}
 
                   {{-- <li><a href="#">&lt;</a></li> --}}
 

@@ -39,7 +39,7 @@
         </div>
 
         <div class="mt-4">
-            <x-input-label for="image_confirmation" :value="__(' Image')" />
+            <x-input-label for="image_confirmation" :value="__('Image')" />
 
             <x-text-input id="image_confirmation" class="block mt-5 w-full"
                             type="file"

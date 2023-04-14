@@ -3,6 +3,7 @@
 
 namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
+use Auth;
 
 use Illuminate\Http\Request;
 use App\Models\welcome;
@@ -54,6 +55,14 @@ $product=Product::get()->last();
 
     public function user_profile(){
         return view('front.frontInterface.user_profile');
+    }
+
+
+
+    public function dashboard(){
+        $user = Auth::User();
+// dd($user);
+        return view('layouts.test',compact('user'));
     }
 
 }
