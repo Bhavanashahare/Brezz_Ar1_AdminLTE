@@ -213,6 +213,7 @@
                     </div>
                     <div class="info">
 
+                        
                         <?php
                         $user = Auth::user();
                         // dd($user);
