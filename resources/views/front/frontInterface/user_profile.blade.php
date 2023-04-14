@@ -20,17 +20,17 @@
                 </div>
                 <div class="col-md-7">
 
-                    <form action="{{ route('contact.message.store') }}" method="post">
+                    <form action="{{ route('user_profile.store') }}" enctype="multipart/form-data" method="post">
                         @csrf
                         <div class="p-3 p-lg-5 border">
                             <div class="form-group row">
                                 <div class="col-md-12">
-                                    <label for="c_fname" class="text-black"> Name <span
+                                    <label for="name" class="text-black"> Name <span
                                             class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" id="c_fname" name="c_fname"
-                                        value="{{ old('c_fname') }}">
+                                    <input type="text" class="form-control" id="c_fname" name="name"
+                                        value="{{ old('name') }}">
                                     <span class="text-danger">
-                                        @error('c_fname')
+                                        @error('name')
                                             {{ $message }}
                                         @enderror
                                     </span>
@@ -40,12 +40,12 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-md-12">
-                                    <label for="c_email" class="text-black">Email <span
+                                    <label for="email" class="text-black">Email <span
                                             class="text-danger">*</span></label>
-                                    <input type="email" class="form-control" id="c_email" name="c_email" placeholder=""
-                                        value="{{ old('c_email') }}">
+                                    <input type="email" class="form-control" id="email" name="email" placeholder=""
+                                        value="{{ old('email') }}">
                                     <span class="text-danger">
-                                        @error('c_email')
+                                        @error('email')
                                             {{ $message }}
                                         @enderror
                                     </span>
@@ -53,12 +53,12 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-md-12">
-                                    <label for="c_subject" class="text-black">Password <span
+                                    <label for="password" class="text-black">Password <span
                                             class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" id="c_subject" name="c_subject"
-                                        value="{{ old('c_subject') }}">
+                                    <input type="password" class="form-control" id="password" name="password"
+                                        value="{{ old('password') }}">
                                     <span class="text-danger">
-                                        @error('c_subject')
+                                        @error('password')
                                             {{ $message }}
                                         @enderror
                                     </span>
@@ -66,12 +66,12 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-md-12">
-                                    <label for="c_subject" class="text-black">Profile-Photo <span
+                                    <label for="image" class="text-black">Profile-Photo <span
                                             class="text-danger">*</span></label>
-                                    <input type="file" class="form-control" id="c_subject" name="c_subject"
-                                        value="{{ old('c_subject') }}">
+                                    <input type="file" class="form-control" id="image" name="image"
+                                        value="">
                                     <span class="text-danger">
-                                        @error('c_subject')
+                                        @error('image')
                                             {{ $message }}
                                         @enderror
                                     </span>
@@ -82,7 +82,7 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-lg-12">
-                                    <input type="submit" class="btn btn-primary btn-lg btn-block" value="Send Message">
+                                    <input type="submit" class="btn btn-primary btn-lg btn-block" value="Submit">
                                 </div>
                             </div>
                         </div>
