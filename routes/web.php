@@ -58,9 +58,9 @@ require __DIR__ . '/auth.php';
 
 
 // Category
-Route::get('categories/create', [CategoryController::class, 'create'])->name('categories.create');
-Route::post('categories/store', [CategoryController::class, 'store'])->name('categories.store');
-Route::get('categories', [CategoryController::class, 'index'])->name('categories');
+Route::get('categories/create', [CategoryController::class, 'create'])->name('categories.create')->middleware(['auth', 'verified']);
+Route::post('categories/store', [CategoryController::class, 'store'])->name('categories.store')->middleware(['auth', 'verified']);
+Route::get('categories', [CategoryController::class, 'index'])->name('categories')->middleware(['auth', 'verified']);
 Route::get('categories/edit/{id}', [CategoryController::class, 'edit'])->name('categories.edit');
 Route::post('categories/update/{id}', [CategoryController::class, 'update'])->name('categories.update');
 Route::get('categories/delete/{id}', [CategoryController::class, 'delete'])->name('categories.delete');
