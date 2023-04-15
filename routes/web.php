@@ -68,8 +68,8 @@ Route::get('categories/delete/{id}', [CategoryController::class, 'delete'])->nam
 
 
 //Product
-Route::get('product/create', [ProductController::class, 'create'])->name('product.create');
-Route::post('product/store', [ProductController::class, 'store'])->name('product.store');
+Route::get('product/create', [ProductController::class, 'create'])->name('product.create')->middleware(['auth', 'verified']);
+Route::post('product/store', [ProductController::class, 'store'])->name('product.store')->middleware(['auth', 'verified']);
 Route::get('products', [ProductController::class, 'index'])->name('products');
 Route::get('product/edit/{id}', [ProductController::class, 'edit'])->name('product.edit');
 Route::post('product/update/{id}', [ProductController::class, 'update'])->name('product.update');
