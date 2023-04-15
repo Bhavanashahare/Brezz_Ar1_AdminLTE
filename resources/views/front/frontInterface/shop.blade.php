@@ -189,7 +189,7 @@
             <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
               <div class="block-4 text-center border">
                 <figure class="block-4-image">
-                  <a href="shop-single.html"><img src="images/cloth_2.jpg" alt="Image placeholder" class="img-fluid"></a>
+                  <a href="shop-single.html"><img src="{{asset('uploads/' . $product->image)}}" alt="Image placeholder" height="200px" width="250 px"></a>
                 </figure>
                 <div class="block-4-text p-4">
                   <h3><a href="shop-single.html">{{$product->title}}</a></h3>
@@ -312,7 +312,7 @@
                 <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="">
                   <a class="block-2-item" href="#">
                     <figure class="image">
-                      <img src="images/men.jpg" alt="" class="img-fluid">
+                      <img src="{{asset('uploads/' . $category->image)}}" alt="" height="280px" width="300px">
                     </figure>
                     <div class="text">
                       <span class="text-uppercase">Collections</span>
