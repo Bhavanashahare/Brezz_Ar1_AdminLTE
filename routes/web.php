@@ -61,57 +61,57 @@ require __DIR__ . '/auth.php';
 Route::get('categories/create', [CategoryController::class, 'create'])->name('categories.create')->middleware(['auth', 'verified']);
 Route::post('categories/store', [CategoryController::class, 'store'])->name('categories.store')->middleware(['auth', 'verified']);
 Route::get('categories', [CategoryController::class, 'index'])->name('categories')->middleware(['auth', 'verified']);
-Route::get('categories/edit/{id}', [CategoryController::class, 'edit'])->name('categories.edit');
-Route::post('categories/update/{id}', [CategoryController::class, 'update'])->name('categories.update');
-Route::get('categories/delete/{id}', [CategoryController::class, 'delete'])->name('categories.delete');
+Route::get('categories/edit/{id}', [CategoryController::class, 'edit'])->name('categories.edit')->middleware(['auth', 'verified']);
+Route::post('categories/update/{id}', [CategoryController::class, 'update'])->name('categories.update')->middleware('auth');
+Route::get('categories/delete/{id}', [CategoryController::class, 'delete'])->name('categories.delete')->middleware('auth');
 
 
 //Product
-Route::get('product/create', [ProductController::class, 'create'])->name('product.create');
-Route::post('product/store', [ProductController::class, 'store'])->name('product.store');
-Route::get('products', [ProductController::class, 'index'])->name('products');
-Route::get('product/edit/{id}', [ProductController::class, 'edit'])->name('product.edit');
-Route::post('product/update/{id}', [ProductController::class, 'update'])->name('product.update');
-Route::get('product/delete/{id}', [ProductController::class, 'delete'])->name('product.delete');
+Route::get('product/create', [ProductController::class, 'create'])->name('product.create')->middleware('auth');
+Route::post('product/store', [ProductController::class, 'store'])->name('product.store')->middleware('auth');
+Route::get('products', [ProductController::class, 'index'])->name('products')->middleware('auth');
+Route::get('product/edit/{id}', [ProductController::class, 'edit'])->name('product.edit')->middleware('auth');
+Route::post('product/update/{id}', [ProductController::class, 'update'])->name('product.update')->middleware('auth');
+Route::get('product/delete/{id}', [ProductController::class, 'delete'])->name('product.delete')->middleware('auth');
 
 
 // CMS
 
-Route::get('cms/create', [CmsController::class, 'create'])->name('cms.create');
-Route::post('cms/store', [CmsController::class, 'store'])->name('cms.store');
-Route::get('cms', [CmsController::class, 'index'])->name('cms');
-Route::get('cms/edit/{id}', [CmsController::class, 'edit'])->name('cms.edit');
-Route::post('cms/update/{id}', [CmsController::class, 'update'])->name('cms.update');
-Route::get('cms/delete/{id}', [CmsController::class, 'delete'])->name('cms.delete');
+Route::get('cms/create', [CmsController::class, 'create'])->name('cms.create')->middleware('auth');
+Route::post('cms/store', [CmsController::class, 'store'])->name('cms.store')->middleware('auth');
+Route::get('cms', [CmsController::class, 'index'])->name('cms')->middleware('auth');
+Route::get('cms/edit/{id}', [CmsController::class, 'edit'])->name('cms.edit')->middleware('auth');
+Route::post('cms/update/{id}', [CmsController::class, 'update'])->name('cms.update')->middleware('auth');
+Route::get('cms/delete/{id}', [CmsController::class, 'delete'])->name('cms.delete')->middleware('auth');
 
 
 // soft delete
 //order
-Route::get('order/index', [OrderController::class, 'index'])->name('order.index');
+Route::get('order/index', [OrderController::class, 'index'])->name('order.index')->middleware('auth');
 
 //Brand
-Route::get('brands/create', [BrandController::class, 'create'])->name('brands.create');
-Route::post('brands/store', [BrandController::class, 'store'])->name('brands.store');
-Route::get('brands', [BrandController::class, 'index'])->name('brands');
-Route::get('brands/edit/{id}', [BrandController::class, 'edit'])->name('brands.edit');
-Route::post('brand/update/{id}', [BrandController::class, 'update'])->name('brand.update');
-Route::get('brand/delete/{id}', [BrandController::class, 'delete'])->name('brand.delete');
+Route::get('brands/create', [BrandController::class, 'create'])->name('brands.create')->middleware('auth');
+Route::post('brands/store', [BrandController::class, 'store'])->name('brands.store')->middleware('auth');
+Route::get('brands', [BrandController::class, 'index'])->name('brands')->middleware('auth');
+Route::get('brands/edit/{id}', [BrandController::class, 'edit'])->name('brands.edit')->middleware('auth');
+Route::post('brand/update/{id}', [BrandController::class, 'update'])->name('brand.update')->middleware('auth');
+Route::get('brand/delete/{id}', [BrandController::class, 'delete'])->name('brand.delete')->middleware('auth');
 // soft delete
 
 
 // colour
-Route::get('color/create', [ColorController::class, 'create'])->name('color.create');
-Route::post('color/store', [ColorController::class, 'store'])->name('color.store');
-Route::get('colors', [ColorController::class, 'index'])->name('colors');
-Route::get('color/edit/{id}', [ColorController::class, 'edit'])->name('color.edit');
-Route::post('color/update/{id}', [ColorController::class, 'update'])->name('color.update');
-Route::get('color/delete/{id}', [ColorController::class, 'delete'])->name('color.delete');
+Route::get('color/create', [ColorController::class, 'create'])->name('color.create')->middleware('auth');
+Route::post('color/store', [ColorController::class, 'store'])->name('color.store')->middleware('auth');
+Route::get('colors', [ColorController::class, 'index'])->name('colors')->middleware('auth');
+Route::get('color/edit/{id}', [ColorController::class, 'edit'])->name('color.edit')->middleware('auth');
+Route::post('color/update/{id}', [ColorController::class, 'update'])->name('color.update')->middleware('auth');
+Route::get('color/delete/{id}', [ColorController::class, 'delete'])->name('color.delete')->middleware('auth');
 
 
 // soft delete
 
 // review (create with database)
-Route::get('review/index', [ReviewController::class, 'index'])->name('review.index');
+Route::get('review/index', [ReviewController::class, 'index'])->name('review.index')->middleware('auth');
 //
 // e-comerce //
 Route::get('/', [WelcomeController::class, 'index'])->name('index');
