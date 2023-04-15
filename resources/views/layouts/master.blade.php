@@ -343,6 +343,16 @@
                             </a>
                         </li>
 
+                        <li class="nav-item">
+                             <a href="{{ route('user_profile.index') }}" class="nav-link">
+                                <i class="nav-icon far fa-envelope"></i>
+                                <p>
+                                    Form
+
+                                </p>
+                            </a>
+                        </li>
+
 
                         <li class="nav-item">
                             {{-- logout   view/auth/layouts/navigation.blade.php se uthaya --}}

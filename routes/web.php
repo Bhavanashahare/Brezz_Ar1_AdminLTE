@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\ReviewController;
@@ -25,9 +26,16 @@ use App\Http\Controllers\Front\ContactController;
 |
                             */
 
-                            // Route::get('/admin/dashboard', function () {
-                            //     return view('home');
-                            // })->middleware(['auth', 'verified'])->name('admin.dashboard');
+
+                            //Custom//
+
+Route::get('/admin/dashboard', function () {
+    return view('home');
+})->middleware(['auth', 'verified'])->name('admin.dashboard');
+// Route::get('admin/dashboard/layout',[WelcomeController::class,'dashboard']);
+
+
+
 
 
 Route::get('/dashboard', function () {
@@ -41,13 +49,13 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__ . '/auth.php';
-Route::get('master', function () {
-    return view('layouts.master');
-});
+
+// Route::get('master', function () {
+//     return view('layouts.master');
+// });
 
 
 
-Route::get('admin/dashboard/layout',[WelcomeController::class,'dashboard']);
 
 // Category
 Route::get('categories/create', [CategoryController::class, 'create'])->name('categories.create');
@@ -114,6 +122,10 @@ Route::get('/shop-single', [WelcomeController::class, 'shopsingle'])->name('shop
 Route::get('/cart', [WelcomeController::class, 'cart'])->name('cart');
 Route::get('/checkout', [WelcomeController::class, 'checkout'])->name('checkout');
 Route::get('/thankyou', [WelcomeController::class, 'thankyou'])->name('thankyou');
+//
 Route::get('/user_profile', [WelcomeController::class, 'user_profile'])->name('user_profile');
+Route::post('user_profile/store', [WelcomeController::class, 'user_profile_store'])->name('user_profile.store');
+Route::get('user_profile/index', [WelcomeController::class, 'user_profile_index'])->name('user_profile.index');
+
 //Contact//
-Route::post('contact/message/store',[ContactController::class,'contact_message_store'])->name('contact.message.store');
+Route::post('contact/message/store', [ContactController::class, 'contact_message_store'])->name('contact.message.store');

@@ -3,8 +3,7 @@
 
 namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
-use Auth;
-
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\welcome;
 use App\Models\Product;
@@ -56,13 +55,30 @@ $product=Product::get()->last();
     public function user_profile(){
         return view('front.frontInterface.user_profile');
     }
+    public function user_profile_store(Request $request){
+        $user= new User();
+        $user->name=$request->name;
+        $user->email=$request->email;
+        $user->password=$request->password;
+        if ($request->hasFile('image')) {
+            $file = $request->image;
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads', $filename);
+            $user->image = $filename;
+        }
+        $user->save();
 
+        // dd($request);
 
+    }
+    public function user_profile_index(){
 
-    public function dashboard(){
-        $user = Auth::User();
-// dd($user);
-        return view('layouts.test',compact('user'));
+            $user=User::all();
+
+            return view('admin.user_index',compact ('user'));
+            }
+
     }
 
-}
+

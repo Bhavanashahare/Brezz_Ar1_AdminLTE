@@ -189,13 +189,12 @@
             <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
               <div class="block-4 text-center border">
                 <figure class="block-4-image">
-                  <a href="shop-single.html"><img src="{{asset('uploads/' .$product->image)}}" alt="Image placeholder" width="208.39px" height="147.91px"
-                    alt=""></a>
+                  <a href="shop-single.html"><img src="images/cloth_2.jpg" alt="Image placeholder" class="img-fluid"></a>
                 </figure>
                 <div class="block-4-text p-4">
                   <h3><a href="shop-single.html">{{$product->title}}</a></h3>
                   <p class="mb-0">Finding perfect products</p>
-                  <p class="text-primary font-weight-bold">₹50</p>
+                  <p class="text-primary font-weight-bold">$50</p>
                 </div>
               </div>
             </div>
@@ -313,7 +312,7 @@
                 <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="">
                   <a class="block-2-item" href="#">
                     <figure class="image">
-                      <img src="{{asset('uploads/' .$category->image)}}"  alt="" height="400px" width="345px" >
+                      <img src="images/men.jpg" alt="" class="img-fluid">
                     </figure>
                     <div class="text">
                       <span class="text-uppercase">Collections</span>
