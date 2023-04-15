@@ -194,7 +194,7 @@
                 <div class="block-4-text p-4">
                   <h3><a href="shop-single.html">{{$product->title}}</a></h3>
                   <p class="mb-0">Finding perfect products</p>
-                  <p class="text-primary font-weight-bold">$50</p>
+                  <p class="text-primary font-weight-bold">₹50</p>
                 </div>
               </div>
             </div>
