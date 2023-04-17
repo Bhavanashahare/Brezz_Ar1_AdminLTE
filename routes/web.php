@@ -114,8 +114,10 @@ Route::get('color/delete/{id}', [ColorController::class, 'delete'])->name('color
 // review (create with database)
 Route::get('review/index', [ReviewController::class, 'index'])->name('review.index')->middleware('auth');
 //
-// e-comerce //
+// e-comerce cha front page tyachat finding your perfect shoes//
 Route::get('/', [WelcomeController::class, 'index'])->name('index');
+//
+
 Route::get('/contact', [WelcomeController::class, 'contact'])->name('contact');
 Route::get('/about', [WelcomeController::class, 'about'])->name('about');
 Route::get('/shop', [WelcomeController::class, 'shop'])->name('shop');
