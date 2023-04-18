@@ -28,8 +28,9 @@ class AuthenticatedSessionController extends Controller
         $user=User::where('email',$request->email)->first();
         if($user->role==2)
         {
-return redirect()->route('index');
+      return redirect()->route('index');
         }
+
         else{
             $request->authenticate();
 

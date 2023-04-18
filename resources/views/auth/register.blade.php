@@ -1,6 +1,18 @@
+
+
+
+@extends('front.layouts.master')
+@section('content')
 <x-guest-layout>
+    @if (session()->has('msg'))
+    <div class="alert alert-success alert-dismissable">
+        {{ session()->get('msg') }}
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+    </div>
+    @endif
     <form method="POST"  enctype="multipart/form-data" action="{{ route('register') }}">
         @csrf
+
         <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Name')" />
@@ -61,3 +73,7 @@
         </div>
     </form>
 </x-guest-layout>
+<br>
+<br>
+
+@endsection
