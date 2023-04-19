@@ -62,15 +62,15 @@ class RegisteredUserController extends Controller
 
 
 
+//comment for register
+
+        // event(new Registered($user));
 
 
-        event(new Registered($user));
+        // Auth::login($user);
+//
 
-
-        Auth::login($user);
-
-
-        return redirect(RouteServiceProvider::HOME)->with('message','data Register successfully');
+        return redirect()->route('register')->with('message','data Register successfully');
     }
 }
 

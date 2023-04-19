@@ -132,3 +132,8 @@ Route::get('user_profile/index', [WelcomeController::class, 'user_profile_index'
 
 //Contact//
 Route::post('contact/message/store', [ContactController::class, 'contact_message_store'])->name('contact.message.store');
+
+
+//grocery
+
+Route::get('/wishlist', [CartController::class, 'getWishlist'])->name('frontend.wishlist');

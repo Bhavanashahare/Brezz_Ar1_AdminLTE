@@ -4,9 +4,9 @@
 @extends('front.layouts.master')
 @section('content')
 <x-guest-layout>
-    @if (session()->has('msg'))
+    @if (session()->has('message'))
     <div class="alert alert-success alert-dismissable">
-        {{ session()->get('msg') }}
+        {{ session()->get('message') }}
         <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
     </div>
     @endif
@@ -56,8 +56,7 @@
             <x-text-input id="image_confirmation" class="block mt-5 w-full"
                             type="file"
                             name="image" required autocomplete="new-image" />
-
-            <x-input-error :messages="$errors->get('image')" class="mt-2" />
+ <x-input-error :messages="$errors->get('image')" class="mt-2" />
         </div>
 
 
