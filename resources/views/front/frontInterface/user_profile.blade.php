@@ -12,11 +12,21 @@
         </div>
     </div> --}}
 
+      @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif 
+
     <div class="site-section">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="h3 mb-3 text-black">Form</h2>
+                    <h2 class="h3 mb-3 text-black">UserProfile</h2>
                 </div>
                 <div class="col-md-7">
 

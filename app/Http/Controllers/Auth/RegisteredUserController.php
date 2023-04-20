@@ -8,10 +8,10 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
+// use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
-
+use Hash;
 
 class RegisteredUserController extends Controller
 {
@@ -45,7 +45,7 @@ class RegisteredUserController extends Controller
         $user =new  User();
         $user ->name=$request->name;
         $user ->email=$request->email;
-        $user ->password=$request->password;
+         $user->password = Hash::make($request->password);
         if ($request->hasFile('image')) {
             $file = $request->image;
             $extension = $file->getClientOriginalExtension();
@@ -55,21 +55,22 @@ class RegisteredUserController extends Controller
 
 
         }
+        $user->role=2;
           $user->save();
         //   dd($user);
 
 
 
 
+//comment for register
+
+        // event(new Registered($user));
 
 
-        event(new Registered($user));
+        // Auth::login($user);
+//
 
-
-        Auth::login($user);
-
-
-        return redirect(RouteServiceProvider::HOME);
+        return redirect()->route('register')->with('message','data Register successfully');
     }
 }
 

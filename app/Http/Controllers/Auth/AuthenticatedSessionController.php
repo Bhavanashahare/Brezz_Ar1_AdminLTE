@@ -9,7 +9,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
-
+use App\Models\User;
 class AuthenticatedSessionController extends Controller
 {
     /**
@@ -25,11 +25,21 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $request->authenticate();
+        $user=User::where('email',$request->email)->first();
+        if($user->role==2)
+        {
+      return redirect()->route('index');
+        }
 
-        $request->session()->regenerate();
+        else{
+            $request->authenticate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+            $request->session()->regenerate();
+
+            return redirect()->intended(RouteServiceProvider::HOME);
+
+        }
+
     }
 
     /**

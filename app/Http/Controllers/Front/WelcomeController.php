@@ -68,7 +68,7 @@ $product=Product::get()->last();
             $user->image = $filename;
         }
         $user->save();
-
+        return redirect()->route('user_profile.index') ->with('message','Data Updated Successfully!!!');
         // dd($request);
 
     }

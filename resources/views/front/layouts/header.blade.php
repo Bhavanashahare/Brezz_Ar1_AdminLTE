@@ -65,6 +65,10 @@
             <li><a href="{{route('shop')}}">Shop</a></li>
 
             <li><a href="{{route('contact')}}">Contact</a></li>
+
+           <li><a href="{{route('register')}}">Register</a></li>
+
+            <li><a href="{{route('login')}}">Login</a></li>
           </ul>
         </div>
       </nav>

@@ -1,6 +1,18 @@
+
+
+
+@extends('front.layouts.master')
+@section('content')
 <x-guest-layout>
+    @if (session()->has('message'))
+    <div class="alert alert-success alert-dismissable">
+        {{ session()->get('message') }}
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+    </div>
+    @endif
     <form method="POST"  enctype="multipart/form-data" action="{{ route('register') }}">
         @csrf
+
         <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Name')" />
@@ -44,8 +56,7 @@
             <x-text-input id="image_confirmation" class="block mt-5 w-full"
                             type="file"
                             name="image" required autocomplete="new-image" />
-
-            <x-input-error :messages="$errors->get('image')" class="mt-2" />
+ <x-input-error :messages="$errors->get('image')" class="mt-2" />
         </div>
 
 
@@ -61,3 +72,7 @@
         </div>
     </form>
 </x-guest-layout>
+<br>
+<br>
+
+@endsection
