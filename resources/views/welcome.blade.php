@@ -125,6 +125,8 @@
                                             <h3><a href="#">{{ $product->title }}</a></h3>
                                             <p class="mb-0">{!! $product->description !!}</p>
                                             <p class="text-primary font-weight-bold">₹ 50</p>
+
+                                          <a class="addtowishlist" data-id="{{ $product->id }}" ><span class="icon icon-heart-o"></span></a>
                                         </div>
                                     </div>
                                 </div>
@@ -160,3 +162,33 @@
         </div>
     </div>
 @endsection
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<script>
+
+    	$(document).on("click", ".addtowishlist", function(event) {
+
+		event.preventDefault();
+        const base_url = "http://127.0.0.1:85";
+		const id = $(this).data('id');
+
+		$.ajax({
+			type : 'GET',
+            url: '/add_to_wishlist/' + id,
+			dataType:"json",
+
+			success: function (response) {
+				var msgType = response.msgType;
+				var msg = response.msg;
+
+				if (msgType == "success") {
+					onSuccessMsg(msg);
+				} else {
+					onErrorMsg(msg);
+				}
+				onWishlist();
+			}
+		});
+    });
+
+</script>

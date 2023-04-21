@@ -186,6 +186,7 @@
                     <h3><a href="shop-single.html">T-Shirt Mockup</a></h3>
                     <p class="mb-0">Finding perfect products</p>
                     <p class="text-primary font-weight-bold">$50</p>
+                    
                   </div>
                 </div>
               </div>

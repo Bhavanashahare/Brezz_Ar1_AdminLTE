@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Front\WelcomeController;
 use App\Http\Controllers\Front\FrontController;
 use App\Http\Controllers\Front\ContactController;
+use App\Http\Controllers\grocery\CartController;
 
 // i didn't migrate table on review and order in table we cannot migrate or create table or datable//
 
@@ -114,7 +115,7 @@ Route::get('color/delete/{id}', [ColorController::class, 'delete'])->name('color
 // review (create with database)
 Route::get('review/index', [ReviewController::class, 'index'])->name('review.index')->middleware('auth');
 //
-// e-comerce cha front page tyachat finding your perfect shoes//
+// e-comerce cha front page tyachat finding your perfect shoes////blade file welcome.blade.php//
 Route::get('/', [WelcomeController::class, 'index'])->name('index');
 //
 
@@ -136,4 +137,7 @@ Route::post('contact/message/store', [ContactController::class, 'contact_message
 
 //grocery
 
-Route::get('/wishlist', [CartController::class, 'getWishlist'])->name('frontend.wishlist');
+// Route::get('/wishlist', [CartController::class, 'getWishlist'])->name('frontend.wishlist');
+//not working
+// wishlist
+Route::get('add_to_wishlist/{id}', [CartController::class, 'addToWishlist'])->name('frontend.add_to_wishlist');

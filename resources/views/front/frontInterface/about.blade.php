@@ -83,6 +83,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-md-6 col-lg-3">
                     <div class="block-38 text-center">
                         <div class="block-38-img">
@@ -99,12 +100,29 @@
                         </div>
                     </div>
                 </div>
+
+                {{-- <div class="col-md-6 col-lg-3">
+                    <div class="block-38 text-center">
+                        <div class="block-38-img">
+                            <div class="block-38-header">
+                                <img src="images/sb.jpg" alt="Image placeholder" class="mb-4">
+                                <h3 class="block-38-heading h4">Shubhangi Borkar</h3>
+                                <p class="block-38-subheading">Marketing</p>
+                            </div>
+                            <div class="block-38-body">
+                                <p>Marketing is a critical aspect of any business, and there are many ways to approach
+                                    it.marketing plan that includes identifying target customers,
+                                    developing messaging.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div> --}}
                 <div class="col-md-6 col-lg-3">
                     <div class="block-38 text-center">
                         <div class="block-38-img">
                             <div class="block-38-header">
                                 <img src="images/kk.jpg" alt="Image placeholder" class="mb-4">
-                                <h3 class="block-38-heading h4">Mike Coolbert</h3>
+                                <h3 class="block-38-heading h4">kavi katekhaye</h3>
                                 <p class="block-38-subheading">Sales Manager</p>
                             </div>
                             <div class="block-38-body">
